@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+        android:gravity="right"
+        android:textAlignment="viewEnd"
+        android:textDirection="rtl"
+        android:fontFamily="@font/amiri_regular"
+        android:textColor="#1B3A1B"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvSizeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saiz: 28sp"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarFontSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="40"
+        android:progress="14"
+        android:paddingBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="16sp"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:gravity="start" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="56sp"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:gravity="end" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp"
+    app:cardBackgroundColor="#F1F8E9">
+    <TextView
+        android:id="@+id/tvArabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textDirection="rtl"
+        android:gravity="right"
+        android:textAlignment="viewEnd"
+        android:fontFamily="@font/amiri_regular"
+        android:textColor="@color/arabic_text"
+        android:lineSpacingMultiplier="1.8" />
+</com.google.android.material.card.MaterialCardView>

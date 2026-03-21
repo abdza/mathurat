@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand -->
+    <color name="colorPrimary">#1B5E20</color>
+    <color name="colorPrimaryDark">#003300</color>
+    <color name="colorPrimaryVariant">#2E7D32</color>
+    <color name="colorSecondary">#4CAF50</color>
+    <color name="colorSecondaryVariant">#388E3C</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <!-- Backgrounds -->
+    <color name="background">#F1F8E9</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#555555</color>
+    <color name="arabic_text">#1B3A1B</color>
+    <color name="transliteration_text">#6D4C41</color>
+    <color name="counter_text">#1B5E20</color>
+
+    <!-- UI elements -->
+    <color name="white">#FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="tab_indicator">#A5D6A7</color>
+    <color name="divider">#E8F5E9</color>
+    <color name="ripple_color">#1A4CAF50</color>
+    <color name="progress_track">#C8E6C9</color>
+    <color name="counter_complete_bg">#43A047</color>
+    <color name="counter_active_bg">#E8F5E9</color>
+</resources>

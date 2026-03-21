@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Al-Mathurat</string>
+    <string name="morning">Pagi ☀️</string>
+    <string name="evening">Petang 🌙</string>
+    <string name="version_sughra">Sughra</string>
+    <string name="version_kubra">Kubra</string>
+    <string name="reset_all">Set Semula</string>
+    <string name="show_transliteration">Rumi ▼</string>
+    <string name="hide_transliteration">Rumi ▲</string>
+    <string name="tap_to_count">Ketuk untuk kira</string>
+    <string name="long_press_reset">Tahan lama untuk set semula</string>
+    <string name="completed">Selesai!</string>
+</resources>

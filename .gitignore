@@ -1,0 +1,20 @@
+# Built outputs
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# App build outputs
+app/build/
+
+# Kotlin
+*.class
+
+# Android Studio
+*.hprof
