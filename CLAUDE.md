@@ -41,6 +41,7 @@ All content is **hardcoded in Kotlin** — no database, no JSON files, no extern
 | `adapter/ZikrAdapter.kt` | RecyclerView adapter for zikr items with tap-to-count |
 | `adapter/ReferenceCategoryAdapter.kt` | Adapter for reference list |
 | `adapter/ReferenceAdapter.kt` | Adapter for reference detail entries |
+| `ZikrCounterActivity.kt` | Standalone tap counter with flash + sound |
 
 ---
 
@@ -217,6 +218,8 @@ App auto-selects Morning tab if launched between 4am–11am, Evening otherwise.
   - `show_english` (Boolean, default false)
   - `show_transliteration` (Boolean, default false)
   - `arabic_font_size` (Float, default 28f, range 16–~60sp)
+- **`mathurat_zikr_counter`** SharedPreferences — stores:
+  - `count` (Int, default 0) — standalone Zikir Counter value, persists across app restarts
 
 ---
 
@@ -239,6 +242,20 @@ User-configurable in `SettingsActivity`:
 6. Cross-reference the physical booklet in `/home/abdza/data/kakikoding/mathurat_sample/` for correct Arabic text, translations, and page position
 7. Add `// ms X` comment to indicate the booklet page number
 8. For multi-verse Quran items, add `pairedVerses = listOf(...)` with one `VerseEntry` per verse (include Bismillah as first entry with empty translations where applicable)
+
+---
+
+## Zikir Counter (ZikrCounterActivity)
+
+Standalone tap counter accessible from the main menu (⋮ → Kaunter Zikir / Zikir Counter).
+
+- Full-screen tap zone — tap anywhere to increment
+- Big number (120sp) centred on screen
+- **Color flash** — `ValueAnimator` ArgbEvaluator fades background from green to normal (350ms) on each tap
+- **Click sound** — `ToneGenerator(STREAM_MUSIC, 60)` with `TONE_PROP_BEEP` at 40ms
+- **Reset FAB** at bottom — resets count to 0
+- Count persists in `mathurat_zikr_counter` SharedPreferences
+- Title/labels respect the `show_english` setting
 
 ---
 

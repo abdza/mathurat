@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateMenuTitles(menu: Menu) {
         val en = settingsPrefs.getBoolean("show_english", false)
+        menu.findItem(R.id.action_counter)?.title = if (en) "Zikir Counter" else "Kaunter Zikir"
         menu.findItem(R.id.action_reference)?.title = if (en) "Reference" else "Rujukan"
         menu.findItem(R.id.action_settings)?.title = if (en) "Settings" else "Tetapan"
         menu.findItem(R.id.action_reset_all)?.title = if (en) "Reset All Counters" else "Set Semula Semua Kiraan"
@@ -144,6 +145,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_counter -> {
+                startActivity(Intent(this, ZikrCounterActivity::class.java))
+                true
+            }
             R.id.action_reference -> {
                 startActivity(Intent(this, ReferenceListActivity::class.java))
                 true

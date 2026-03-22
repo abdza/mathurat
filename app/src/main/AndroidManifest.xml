@@ -29,6 +29,10 @@
             android:name=".ReferenceDetailActivity"
             android:exported="false"
             android:parentActivityName=".ReferenceListActivity" />
+        <activity
+            android:name=".ZikrCounterActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
