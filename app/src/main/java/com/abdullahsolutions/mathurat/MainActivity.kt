@@ -5,12 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.abdullahsolutions.mathurat.adapter.ZikrAdapter
 import com.abdullahsolutions.mathurat.data.ZikrData
 import com.abdullahsolutions.mathurat.databinding.ActivityMainBinding
+import com.abdullahsolutions.mathurat.model.Achievement
 import com.abdullahsolutions.mathurat.model.Session
 import com.abdullahsolutions.mathurat.model.Version
 import com.abdullahsolutions.mathurat.model.ZikrItem
@@ -27,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
     private val prefs by lazy { getSharedPreferences("mathurat_counts", Context.MODE_PRIVATE) }
     private val settingsPrefs by lazy { getSharedPreferences("mathurat_settings", Context.MODE_PRIVATE) }
+
+    // Prevent showing achievement popup multiple times per session
+    private var cycleAwardedToday = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Reload settings in case user changed them in SettingsActivity
         adapter.arabicFontSizeSp = settingsPrefs.getFloat("arabic_font_size", 28f)
         adapter.showEnglish = settingsPrefs.getBoolean("show_english", false)
         adapter.showTransliteration = settingsPrefs.getBoolean("show_transliteration", false)
@@ -64,7 +68,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         adapter = ZikrAdapter(
             currentItems,
-            { id, count -> saveCount(id, count) },
+            { id, count ->
+                saveCount(id, count)
+                checkCycleCompletion()
+            },
             settingsPrefs.getFloat("arabic_font_size", 28f),
             settingsPrefs.getBoolean("show_english", false),
             settingsPrefs.getBoolean("show_transliteration", false),
@@ -86,12 +93,43 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkCycleCompletion() {
+        if (cycleAwardedToday) return
+        if (currentItems.isNotEmpty() && currentItems.all { it.isCompleted }) {
+            cycleAwardedToday = true
+            val newAchievements = AchievementManager.recordAndCheck(currentVersion, currentSession, this)
+            if (newAchievements.isNotEmpty()) {
+                showAchievementDialog(newAchievements)
+            }
+        }
+    }
+
+    private fun showAchievementDialog(achievements: List<Achievement>) {
+        val en = settingsPrefs.getBoolean("show_english", false)
+        // Show one at a time, chained
+        fun showNext(index: Int) {
+            if (index >= achievements.size) return
+            val ach = achievements[index]
+            val title = if (en) ach.titleEn else ach.titleMs
+            val desc = if (en) ach.descEn else ach.descMs
+            val header = if (en) "Achievement Unlocked!" else "Pencapaian Baharu!"
+            AlertDialog.Builder(this)
+                .setTitle("${ach.emoji}  $header")
+                .setMessage("$title\n\n$desc")
+                .setPositiveButton("OK") { _, _ -> showNext(index + 1) }
+                .setCancelable(false)
+                .show()
+        }
+        showNext(0)
+    }
+
     private fun setupTabs() {
         binding.tabLayout.getTabAt(if (currentSession == Session.MORNING) 0 else 1)?.select()
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 currentSession = if (tab?.position == 0) Session.MORNING else Session.EVENING
+                cycleAwardedToday = false
                 loadContent()
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -105,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         binding.toggleVersion.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
                 currentVersion = if (checkedId == R.id.btnSughra) Version.SUGHRA else Version.KUBRA
+                cycleAwardedToday = false
                 loadContent()
             }
         }
@@ -137,6 +176,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateMenuTitles(menu: Menu) {
         val en = settingsPrefs.getBoolean("show_english", false)
+        menu.findItem(R.id.action_achievements)?.title = if (en) "Achievements" else "Pencapaian"
         menu.findItem(R.id.action_counter)?.title = if (en) "Zikir Counter" else "Kaunter Zikir"
         menu.findItem(R.id.action_reference)?.title = if (en) "Reference" else "Rujukan"
         menu.findItem(R.id.action_settings)?.title = if (en) "Settings" else "Tetapan"
@@ -145,6 +185,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_achievements -> {
+                startActivity(Intent(this, AchievementsActivity::class.java))
+                true
+            }
             R.id.action_counter -> {
                 startActivity(Intent(this, ZikrCounterActivity::class.java))
                 true
@@ -177,6 +221,8 @@ class MainActivity : AppCompatActivity() {
             saveCount(item.id, 0)
         }
         adapter.notifyDataSetChanged()
+        cycleAwardedToday = false
+        binding.recyclerView.scrollToPosition(0)
     }
 
     private fun countKey(id: Int): String = "${currentSession.name}_${currentVersion.name}_$id"
