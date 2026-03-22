@@ -176,6 +176,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateMenuTitles(menu: Menu) {
         val en = settingsPrefs.getBoolean("show_english", false)
+        menu.findItem(R.id.action_calendar)?.title = if (en) "Calendar" else "Kalendar"
         menu.findItem(R.id.action_achievements)?.title = if (en) "Achievements" else "Pencapaian"
         menu.findItem(R.id.action_counter)?.title = if (en) "Zikir Counter" else "Kaunter Zikir"
         menu.findItem(R.id.action_reference)?.title = if (en) "Reference" else "Rujukan"
@@ -185,6 +186,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_calendar -> {
+                startActivity(Intent(this, CalendarActivity::class.java))
+                true
+            }
             R.id.action_achievements -> {
                 startActivity(Intent(this, AchievementsActivity::class.java))
                 true

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Month navigation header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/btnPrevMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_chevron_left"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Previous month"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvMonthYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btnNextMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_chevron_right"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Next month"
+            android:tint="@color/white" />
+
+    </LinearLayout>
+
+    <!-- Day-of-week header row -->
+    <LinearLayout
+        android:id="@+id/llDayHeaders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryVariant"
+        android:paddingVertical="4dp">
+
+        <TextView style="@style/DayHeader" android:text="Ahd" />
+        <TextView style="@style/DayHeader" android:text="Isn" />
+        <TextView style="@style/DayHeader" android:text="Sel" />
+        <TextView style="@style/DayHeader" android:text="Rab" />
+        <TextView style="@style/DayHeader" android:text="Kha" />
+        <TextView style="@style/DayHeader" android:text="Jum" />
+        <TextView style="@style/DayHeader" android:text="Sab" />
+
+    </LinearLayout>
+
+    <!-- Calendar grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingHorizontal="2dp" />
+
+    <!-- Legend -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tvLegendTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Petunjuk Warna"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Left column: Morning labels -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_indicator_pill"
+                        android:backgroundTint="#A5D6A7"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvLegendSughraMorning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pagi Sughra"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_indicator_pill"
+                        android:backgroundTint="#1B5E20"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvLegendKubraMorning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pagi Kubra"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Right column: Evening labels -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_indicator_pill"
+                        android:backgroundTint="#81C784"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvLegendSughraEvening"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Petang Sughra"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_indicator_pill"
+                        android:backgroundTint="#2E7D32"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvLegendKubraEvening"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Petang Kubra"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Gray: not done -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_indicator_pill"
+                        android:backgroundTint="#BDBDBD"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvLegendNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiada"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

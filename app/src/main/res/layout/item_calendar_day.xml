@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="2dp"
+    android:minHeight="56dp">
+
+    <TextView
+        android:id="@+id/tvDayNumber"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/text_primary"
+        android:background="@drawable/bg_today_circle" />
+
+    <!-- Morning / Evening indicator row -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="6dp"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <View
+            android:id="@+id/indicatorMorning"
+            android:layout_width="10dp"
+            android:layout_height="6dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/bg_indicator_pill" />
+
+        <View
+            android:id="@+id/indicatorEvening"
+            android:layout_width="10dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_indicator_pill" />
+
+    </LinearLayout>
+
+</LinearLayout>
