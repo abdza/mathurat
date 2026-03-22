@@ -83,51 +83,62 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Arabic text -->
-        <TextView
-            android:id="@+id/tvArabic"
+        <!-- Content wrapper: single block OR verse-by-verse -->
+        <LinearLayout
+            android:id="@+id/llContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginTop="12dp"
-            android:textColor="@color/arabic_text"
-            android:textSize="28sp"
-            android:lineSpacingMultiplier="1.8"
-            android:gravity="right"
-            android:textAlignment="viewEnd"
-            android:fontFamily="@font/amiri_regular"
-            android:textDirection="rtl"
             app:layout_constraintTop_toBottomOf="@id/divider"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Transliteration -->
-        <TextView
-            android:id="@+id/tvTransliteration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/transliteration_text"
-            android:textSize="13sp"
-            android:lineSpacingMultiplier="1.4"
-            android:fontFamily="sans-serif"
-            android:textStyle="italic"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvArabic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <!-- Single-block Arabic text -->
+            <TextView
+                android:id="@+id/tvArabic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/arabic_text"
+                android:textSize="28sp"
+                android:lineSpacingMultiplier="1.8"
+                android:gravity="right"
+                android:textAlignment="viewEnd"
+                android:fontFamily="@font/amiri_regular"
+                android:textDirection="rtl" />
 
-        <!-- Translation -->
-        <TextView
-            android:id="@+id/tvTranslation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp"
-            android:lineSpacingMultiplier="1.4"
-            app:layout_constraintTop_toBottomOf="@id/tvTransliteration"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <!-- Single-block Transliteration -->
+            <TextView
+                android:id="@+id/tvTransliteration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/transliteration_text"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.4"
+                android:fontFamily="sans-serif"
+                android:textStyle="italic"
+                android:visibility="gone" />
+
+            <!-- Single-block Translation -->
+            <TextView
+                android:id="@+id/tvTranslation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.4" />
+
+            <!-- Verse-by-verse container (used for multi-verse Quran sections) -->
+            <LinearLayout
+                android:id="@+id/llVerses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
         <!-- Progress bar -->
         <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -139,10 +150,9 @@
             app:trackThickness="6dp"
             app:indicatorColor="@color/colorPrimary"
             app:trackColor="@color/progress_track"
-            app:layout_constraintTop_toBottomOf="@id/tvTranslation"
+            app:layout_constraintTop_toBottomOf="@id/llContent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

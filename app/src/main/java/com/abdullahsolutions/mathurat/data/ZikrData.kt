@@ -2,6 +2,7 @@ package com.abdullahsolutions.mathurat.data
 
 import com.abdullahsolutions.mathurat.model.Session
 import com.abdullahsolutions.mathurat.model.Version
+import com.abdullahsolutions.mathurat.model.VerseEntry
 import com.abdullahsolutions.mathurat.model.ZikrItem
 
 object ZikrData {
@@ -19,8 +20,8 @@ object ZikrData {
             titleMs = "Surah Al-Fatihah",
             titleEn = "Al-Fatihah",
             subtitleEn = "Surah Al-Fatihah",
-            arabic = "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\nبِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
-            transliteration = "A'udhu billahi minash-shayṭanir-rajim. Bismillahir-rahmanir-rahim. Alhamdulillahi rabbil-'alamin. Ar-rahmanir-rahim. Maliki yawmid-din. Iyyaka na'budu wa iyyaka nasta'in. Ihdinaṣ-ṣirathal-mustaqim. Ṣiratha alladhina an'amta 'alayhim ghayril-maghdubi 'alayhim wa laḍ-ḍallin.",
+            arabic = "أَعُوذُ بِاللَّهِ السَّمِيعِ الْعَلِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\nبِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+            transliteration = "A'udhu billahis-sami'il-'alimi minash-shayṭanir-rajim. Bismillahir-rahmanir-rahim. Alhamdulillahi rabbil-'alamin. Ar-rahmanir-rahim. Maliki yawmid-din. Iyyaka na'budu wa iyyaka nasta'in. Ihdinaṣ-ṣirathal-mustaqim. Ṣiratha alladhina an'amta 'alayhim ghayril-maghdubi 'alayhim wa laḍ-ḍallin.",
             translation = "Aku berlindung dengan Allah dari syaitan yang direjam. Dengan nama Allah, Yang Maha Pemurah, lagi Maha Mengasihani. Segala puji tertentu bagi Allah, Tuhan yang memelihara sekalian alam. Yang Maha Pemurah, lagi Maha Mengasihani. Yang Menguasai hari Pembalasan. Engkaulah sahaja yang kami sembah, dan kepada Engkaulah sahaja kami memohon pertolongan. Tunjukilah kami jalan yang lurus. Jalan orang-orang yang Engkau kurniakan nikmat kepada mereka, bukan jalan mereka yang Engkau murkai, dan bukan pula jalan mereka yang sesat.",
             translationEn = "I seek refuge in Allah from the accursed Satan. In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of all the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. It is You we worship and You we ask for help. Guide us to the straight path — the path of those upon whom You have bestowed favour, not of those who have evoked anger or of those who are astray.",
             targetCount = 1,
@@ -41,7 +42,40 @@ object ZikrData {
             translationEn = "Alif Lam Mim. This is the Book about which there is no doubt, a guidance for those conscious of Allah — who believe in the unseen, establish prayer, and spend from what We have provided for them, and who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain. Those are upon guidance from their Lord, and it is those who are the successful.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.SUGHRA, Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "الٓمٓ",
+                    transliteration = "Alif Lam Mim.",
+                    translationMs = "Alif Lam Mim.",
+                    translationEn = "Alif Lam Mim."
+                ),
+                VerseEntry(
+                    arabic = "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",
+                    transliteration = "Dhalikal-kitabu la rayba fih, hudal-lil-muttaqin.",
+                    translationMs = "Kitab Al-Quran ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa.",
+                    translationEn = "This is the Book about which there is no doubt, a guidance for those conscious of Allah."
+                ),
+                VerseEntry(
+                    arabic = "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ",
+                    transliteration = "Alladhina yu'minuna bil-ghaybi wa yuqimunas-salata wa mimma razaqnahum yunfiqun.",
+                    translationMs = "Iaitu mereka yang beriman kepada yang ghaib, mendirikan solat, dan menafkahkan sebahagian rezeki yang Kami kurniakan.",
+                    translationEn = "Who believe in the unseen, establish prayer, and spend from what We have provided for them."
+                ),
+                VerseEntry(
+                    arabic = "وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ",
+                    transliteration = "Walladhina yu'minuna bima unzila ilayka wa ma unzila min qablik, wa bil-akhirati hum yuqinun.",
+                    translationMs = "Dan mereka yang beriman kepada apa yang diturunkan kepadamu dan apa yang diturunkan sebelummu, serta yakin akan adanya akhirat.",
+                    translationEn = "And who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain."
+                ),
+                VerseEntry(
+                    arabic = "أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
+                    transliteration = "Ula'ika 'ala hudam min rabbihim wa ula'ika humul-muflihun.",
+                    translationMs = "Mereka itulah yang mendapat petunjuk dari Tuhan mereka, dan merekalah orang-orang yang beruntung.",
+                    translationEn = "Those are upon guidance from their Lord, and it is those who are the successful."
+                )
+            )
         ),
 
         // ms 5–8 — Al-Baqarah 255–257
@@ -57,7 +91,27 @@ object ZikrData {
             translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. There shall be no compulsion in religion. Allah is the ally of those who believe: He brings them out from darknesses into the light.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA)
+            versions = setOf(Version.SUGHRA, Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+                    transliteration = "Allahu la ilaha illa huwal-hayyul-qayyum, la ta'khudhahu sinatuw wa la nawm, lahu ma fis-samawati wa ma fil-ardh, man dhal-ladhi yashfa'u 'indahu illa bi-idhnih, ya'lamu ma bayna aydihim wa ma khalfahum, wa la yuhituna bi-shay'im min 'ilmihi illa bima sha', wasi'a kursiyyuhus-samawati wal-ardha wa la ya'uduhu hifzuhuma wa huwal-'aliyyul-'azim.",
+                    translationMs = "Allah, tidak ada Tuhan melainkan Dia Yang Hidup kekal lagi terus-menerus mengurus makhluk-Nya; tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan yang dikehendaki-Nya. Kursi-Nya meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.",
+                    translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great."
+                ),
+                VerseEntry(
+                    arabic = "لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ",
+                    transliteration = "La ikraha fid-din, qad tabayyanar-rushdu minal-ghayy, faman yakfur bit-taghuti wa yu'min billahi faqadis-tamsaka bil-'urwatil-wuthqa lan-fisama laha wallahu sami'un 'alim.",
+                    translationMs = "Tidak ada paksaan untuk memasuki agama Islam; sesungguhnya telah jelas jalan yang benar daripada jalan yang sesat. Kerana itu barangsiapa yang ingkar kepada Thaghut dan beriman kepada Allah, maka sesungguhnya ia telah berpegang kepada buhul tali yang amat kuat yang tidak akan putus. Dan Allah Maha Mendengar lagi Maha Mengetahui.",
+                    translationEn = "There shall be no compulsion in religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing."
+                ),
+                VerseEntry(
+                    arabic = "اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
+                    transliteration = "Allahu waliyyul-ladhina amanu yukhrijuhum minaẓ-ẓulumati ilan-nur, walladhina kafaru awliya'uhumut-taghut yukhrijunahum minan-nuri ilaẓ-ẓulumat, ula'ika ash-habun-nar, hum fiha khalidun.",
+                    translationMs = "Allah Pelindung orang-orang yang beriman; Dia mengeluarkan mereka dari kegelapan kepada cahaya. Dan orang-orang yang kafir, pelindung-pelindungnya ialah syaitan, yang mengeluarkan mereka daripada cahaya kepada kegelapan. Mereka itu adalah penghuni neraka; mereka kekal di dalamnya.",
+                    translationEn = "Allah is the ally of those who believe: He brings them out from darknesses into the light. And those who disbelieve — their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein."
+                )
+            )
         ),
 
         // ms 9 — Al-Baqarah 284–286
@@ -73,7 +127,24 @@ object ZikrData {
             translationEn = "To Allah belongs whatever is in the heavens and whatever is in the earth. The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers. Allah does not burden a soul beyond that it can bear. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, grant us forgiveness. You are our protector, so give us victory over the disbelieving people.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.SUGHRA, Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+                    translationMs = "Kepunyaan Allah-lah segala apa yang ada di langit dan di bumi. Dan jika kamu melahirkan apa yang ada di dalam hatimu atau kamu menyembunyikannya, nescaya Allah akan membuat perhitungan dengan kamu tentang perbuatanmu itu. Maka Allah mengampuni siapa yang dikehendaki-Nya dan menyeksa siapa yang dikehendaki-Nya; dan Allah Maha Kuasa atas segala sesuatu.",
+                    translationEn = "To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent."
+                ),
+                VerseEntry(
+                    arabic = "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ",
+                    translationMs = "Rasul telah beriman kepada Al-Quran yang diturunkan kepadanya dari Tuhannya, demikian pula orang-orang yang beriman. Semuanya beriman kepada Allah, malaikat-malaikat-Nya, kitab-kitab-Nya dan rasul-rasul-Nya. Mereka mengatakan: 'Kami tidak membeza-bezakan antara seseorangpun dari rasul-rasul-Nya'; dan mereka mengatakan: 'Kami dengar dan kami taat.' Ampunilah kami ya Tuhan kami dan kepada Engkaulah tempat kembali.",
+                    translationEn = "The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers, saying: We make no distinction between any of His messengers. And they say: We hear and we obey. Grant us Your forgiveness, our Lord, and to You is the final destination."
+                ),
+                VerseEntry(
+                    arabic = "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+                    translationMs = "Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya. Ia mendapat pahala dari kebajikan yang diusahakannya dan ia mendapat seksa dari kejahatan yang dikerjakannya. Doa mereka: Ya Tuhan kami, janganlah Engkau hukum kami jika kami lupa atau kami tersalah. Ya Tuhan kami, janganlah Engkau bebankan kepada kami beban yang berat sebagaimana Engkau bebankan kepada orang-orang yang sebelum kami. Ya Tuhan kami, janganlah Engkau pikulkan kepada kami apa yang tidak sanggup kami memikulnya. Beri maaflah kami; ampunilah kami; dan rahmatilah kami. Engkaulah Penolong kami, maka tolonglah kami terhadap kaum yang kafir.",
+                    translationEn = "Allah does not burden a soul beyond that it can bear. It will have the consequence of what good it has gained, and it will bear the consequence of what evil it has earned. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, lay not upon us a burden like that which You laid upon those before us. Our Lord, burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people."
+                )
+            )
         ),
 
         // ms 9 (bawah) — Ali Imran 1-2
@@ -89,7 +160,22 @@ object ZikrData {
             translationEn = "Alif Lam Mim. Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "الٓمٓ",
+                    transliteration = "Alif Lam Mim.",
+                    translationMs = "Alif Lam Mim.",
+                    translationEn = "Alif Lam Mim."
+                ),
+                VerseEntry(
+                    arabic = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+                    transliteration = "Allahu la ilaha illa huwal-hayyul-qayyum.",
+                    translationMs = "Allah, tidak ada Tuhan melainkan Dia, Yang Hidup kekal lagi terus-menerus mengurus makhluk-Nya.",
+                    translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence."
+                )
+            )
         ),
 
         // ms 11 — At-Tawbah 129
@@ -121,7 +207,27 @@ object ZikrData {
             translationEn = "He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ عَالِمُ الْغَيْبِ وَالشَّهَادَةِ هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+                    transliteration = "Huwall-lahul-ladhi la ilaha illa huw, 'alimul-ghaybi wash-shahadah, huwar-rahmanur-rahim.",
+                    translationMs = "Dialah Allah yang tiada Tuhan selain Dia, Yang Mengetahui yang ghaib dan yang nyata. Dialah Yang Maha Pemurah lagi Maha Penyayang.",
+                    translationEn = "He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful."
+                ),
+                VerseEntry(
+                    arabic = "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْمَلِكُ الْقُدُّوسُ السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ سُبْحَانَ اللَّهِ عَمَّا يُشْرِكُونَ",
+                    transliteration = "Huwall-lahul-ladhi la ilaha illa huwal-malikul-quddusis-salamul-mu'minul-muhayminul-'azizul-jabbarul-mutakabbir, subhanallahi 'amma yushrikun.",
+                    translationMs = "Dialah Allah yang tiada Tuhan selain Dia, Raja Yang Maha Suci, Yang Maha Sejahtera, Yang Mengaruniakan keamanan, Yang Maha Memelihara, Yang Maha Perkasa, Yang Maha Kuasa, Yang Memiliki Keagungan. Maha Suci Allah dari apa yang mereka persekutukan.",
+                    translationEn = "He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him."
+                ),
+                VerseEntry(
+                    arabic = "هُوَ اللَّهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْأَسْمَاءُ الْحُسْنَىٰ يُسَبِّحُ لَهُ مَا فِي السَّمَاوَاتِ وَالْأَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+                    transliteration = "Huwall-lahul-khaliqul-bari'ul-musawwir, lahul-asma'ul-husna, yusabbihu lahu ma fis-samawati wal-ardh, wa huwal-'azizul-hakim.",
+                    translationMs = "Dialah Allah Yang Menciptakan, Yang Mengadakan, Yang Membentuk Rupa. Bagi-Nya nama-nama yang paling baik. Bertasbih kepada-Nya apa yang ada di langit dan bumi. Dan Dialah Yang Maha Perkasa lagi Maha Bijaksana.",
+                    translationEn = "He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise."
+                )
+            )
         ),
 
         // ms 15–16 — Ar-Rum 20–27
@@ -137,7 +243,49 @@ object ZikrData {
             translationEn = "And of His signs is that He created you from dust; then, suddenly you were human beings dispersing. And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colours. And of His signs is your sleep by night and day and your seeking of His bounty. And of His signs is that He shows you the lightning. And of His signs is that the heaven and earth stand by His command. To Him belongs whoever is in the heavens and earth. All are devoutly obedient to Him.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan kamu dari tanah. Kemudian tiba-tiba kamu menjadi manusia yang bertebaran.",
+                    translationEn = "And of His signs is that He created you from dust; then, suddenly you were human beings dispersing."
+                ),
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.",
+                    translationEn = "And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."
+                ),
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّلْعَالِمِينَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah penciptaan langit dan bumi dan berlain-lainan bahasamu dan warna kulitmu. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang mengetahui.",
+                    translationEn = "And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colours. Indeed in that are signs for those of knowledge."
+                ),
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah tidurmu di waktu malam dan siang hari dan usahamu mencari sebahagian dari kurnia-Nya. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang mendengarkan.",
+                    translationEn = "And of His signs is your sleep by night and day and your seeking of His bounty. Indeed in that are signs for a people who listen."
+                ),
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ يُرِيكُمُ الْبَرْقَ خَوْفًا وَطَمَعًا وَيُنَزِّلُ مِنَ السَّمَاءِ مَاءً فَيُحْيِي بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya, Dia memperlihatkan kepadamu kilat untuk menimbulkan ketakutan dan harapan, dan Dia menurunkan hujan dari langit, lalu menghidupkan bumi dengan air itu sesudah matinya. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang mempergunakan akalnya.",
+                    translationEn = "And of His signs is that He shows you the lightning, causing fear and aspiration, and He sends down rain from the sky by which He brings to life the earth after its lifelessness. Indeed in that are signs for a people who use reason."
+                ),
+                VerseEntry(
+                    arabic = "وَمِنْ آيَاتِهِ أَن تَقُومَ السَّمَاءُ وَالْأَرْضُ بِأَمْرِهِ ثُمَّ إِذَا دَعَاكُمْ دَعْوَةً مِّنَ الْأَرْضِ إِذَا أَنتُمْ تَخْرُجُونَ",
+                    translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah berdirinya langit dan bumi dengan iradat-Nya. Kemudian apabila Dia memanggil kamu sekali panggil dari bumi, seketika itu kamu keluar.",
+                    translationEn = "And of His signs is that the heaven and earth stand by His command. Then when He calls you with a single call from the earth, immediately you will come forth."
+                ),
+                VerseEntry(
+                    arabic = "وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ كُلٌّ لَّهُ قَانِتُونَ",
+                    translationMs = "Dan kepunyaan-Nyalah siapa saja yang ada di langit dan di bumi. Semuanya hanya kepada-Nya tunduk.",
+                    translationEn = "And to Him belongs whoever is in the heavens and earth. All are devoutly obedient to Him."
+                ),
+                VerseEntry(
+                    arabic = "وَهُوَ الَّذِي يَبْدَأُ الْخَلْقَ ثُمَّ يُعِيدُهُ وَهُوَ أَهْوَنُ عَلَيْهِ وَلَهُ الْمَثَلُ الْأَعْلَىٰ فِي السَّمَاوَاتِ وَالْأَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+                    translationMs = "Dan Dialah yang menciptakan makhluk dari permulaannya, kemudian mengembalikannya; dan menghidupkan kembali itu adalah lebih mudah bagi-Nya. Dan bagi-Nyalah sifat yang Maha Tinggi di langit dan di bumi; dan Dialah Yang Maha Perkasa lagi Maha Bijaksana.",
+                    translationEn = "And it is He who begins creation; then He repeats it, and that is even easier for Him. To Him belongs the highest attribute in the heavens and earth. And He is the Exalted in Might, the Wise."
+                )
+            )
         ),
 
         // ms 17–18 — Al-Mu'minun 115–118
@@ -153,7 +301,33 @@ object ZikrData {
             translationEn = "Then did you think that We created you uselessly and that to Us you would not be returned? So exalted is Allah, the Sovereign, the Truth; there is no deity except Him, Lord of the Noble Throne. And whoever invokes besides Allah another deity for which he has no proof — his account is only with his Lord. Indeed, the disbelievers will not succeed. And say: My Lord, forgive and have mercy, and You are the best of the merciful.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا وَأَنَّكُمْ إِلَيْنَا لَا تُرْجَعُونَ",
+                    transliteration = "Afahasibtum annama khalaqnakum 'abathan wa annakum ilayna la turja'un.",
+                    translationMs = "Maka apakah kamu mengira bahawa Kami menciptakan kamu main-main saja, dan kamu tidak akan dikembalikan kepada Kami?",
+                    translationEn = "Then did you think that We created you uselessly and that to Us you would not be returned?"
+                ),
+                VerseEntry(
+                    arabic = "فَتَعَالَى اللَّهُ الْمَلِكُ الْحَقُّ لَا إِلَٰهَ إِلَّا هُوَ رَبُّ الْعَرْشِ الْكَرِيمِ",
+                    transliteration = "Fata'alallahul-malikul-haqq, la ilaha illa huwa rabbul-'arshil-karim.",
+                    translationMs = "Maka Maha Tinggi Allah, Raja Yang sebenarnya; tidak ada Tuhan selain Dia, Tuhan yang memiliki Arsy yang mulia.",
+                    translationEn = "So exalted is Allah, the Sovereign, the Truth; there is no deity except Him, Lord of the Noble Throne."
+                ),
+                VerseEntry(
+                    arabic = "وَمَن يَدْعُ مَعَ اللَّهِ إِلَٰهًا آخَرَ لَا بُرْهَانَ لَهُ بِهِ فَإِنَّمَا حِسَابُهُ عِندَ رَبِّهِ إِنَّهُ لَا يُفْلِحُ الْكَافِرُونَ",
+                    transliteration = "Wa man yad'u ma'allahi ilahan akhara la burhanala hu bihi fa-innama hisabuhu 'inda rabbih, innahu la yuflichul-kafirun.",
+                    translationMs = "Dan barangsiapa menyembah tuhan yang lain di samping Allah, padahal tidak ada suatu dalilpun baginya tentang itu, maka sesungguhnya perhitungannya di sisi Tuhannya. Sesungguhnya orang-orang yang kafir tiada beruntung.",
+                    translationEn = "And whoever invokes besides Allah another deity for which he has no proof — his account is only with his Lord. Indeed, the disbelievers will not succeed."
+                ),
+                VerseEntry(
+                    arabic = "وَقُل رَّبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ",
+                    transliteration = "Wa qur-rabbi ghfir warham wa anta khayrul-rahimin.",
+                    translationMs = "Dan katakanlah: Ya Tuhanku, berilah ampun dan berilah rahmat, dan Engkau adalah Pemberi rahmat yang paling baik.",
+                    translationEn = "And say: My Lord, forgive and have mercy, and You are the best of the merciful."
+                )
+            )
         ),
 
         // ms 19 — Al-Kafirun
@@ -169,7 +343,46 @@ object ZikrData {
             translationEn = "Say: O disbelievers, I do not worship what you worship. Nor are you worshippers of what I worship. Nor will I be a worshipper of what you worship. Nor will you be worshippers of what I worship. For you is your religion, and for me is my religion.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+                    transliteration = "Qul ya ayyuhal-kafirun.",
+                    translationMs = "Katakanlah: Hai orang-orang kafir,",
+                    translationEn = "Say: O disbelievers,"
+                ),
+                VerseEntry(
+                    arabic = "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+                    transliteration = "La a'budu ma ta'budun.",
+                    translationMs = "Aku tidak akan menyembah apa yang kamu sembah.",
+                    translationEn = "I do not worship what you worship."
+                ),
+                VerseEntry(
+                    arabic = "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                    transliteration = "Wa la antum 'abiduna ma a'bud.",
+                    translationMs = "Dan kamu bukan penyembah Tuhan yang aku sembah.",
+                    translationEn = "Nor are you worshippers of what I worship."
+                ),
+                VerseEntry(
+                    arabic = "وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ",
+                    transliteration = "Wa la ana 'abidun ma 'abadtum.",
+                    translationMs = "Dan aku tidak pernah menjadi penyembah apa yang kamu sembah.",
+                    translationEn = "Nor will I be a worshipper of what you worship."
+                ),
+                VerseEntry(
+                    arabic = "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                    transliteration = "Wa la antum 'abiduna ma a'bud.",
+                    translationMs = "Dan kamu tidak pernah pula menjadi penyembah Tuhan yang aku sembah.",
+                    translationEn = "Nor will you be worshippers of what I worship."
+                ),
+                VerseEntry(
+                    arabic = "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+                    transliteration = "Lakum dinukum wa liya din.",
+                    translationMs = "Untukmu agamamu, dan untukku agamaku.",
+                    translationEn = "For you is your religion, and for me is my religion."
+                )
+            )
         ),
 
         // ms 21 — An-Nasr
@@ -185,7 +398,28 @@ object ZikrData {
             translationEn = "When the victory of Allah has come and the conquest, and you see the people entering into the religion of Allah in multitudes, then exalt Him with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of repentance.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA)
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+                    transliteration = "Idha ja'a nasrullahi wal-fath.",
+                    translationMs = "Apabila telah datang pertolongan Allah dan kemenangan,",
+                    translationEn = "When the victory of Allah has come and the conquest,"
+                ),
+                VerseEntry(
+                    arabic = "وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا",
+                    transliteration = "Wa ra'aytan-nasa yadkhuluna fi dinillahi afwaja.",
+                    translationMs = "Dan kamu lihat manusia masuk agama Allah dengan berbondong-bondong,",
+                    translationEn = "And you see the people entering into the religion of Allah in multitudes,"
+                ),
+                VerseEntry(
+                    arabic = "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا",
+                    transliteration = "Fasabbih bihamdi rabbika wastaghfirh, innahu kana tawwaba.",
+                    translationMs = "Maka bertasbihlah dengan memuji Tuhanmu dan mohonlah ampun kepada-Nya. Sesungguhnya Dia adalah Maha Penerima taubat.",
+                    translationEn = "Then exalt Him with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of repentance."
+                )
+            )
         ),
 
         // ms 21 — Al-Ikhlas x3
@@ -391,8 +625,8 @@ object ZikrData {
             titleMs = "Redha dengan Allah, Islam dan Nabi Muhammad",
             titleEn = "Contentment with Allah",
             subtitleEn = "Contentment with Allah, Islam and Prophet Muhammad",
-            arabic = "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا وَرَسُولًا",
-            transliteration = "Radhitu billahi rabban wa bil-islami dinan wa bi-muhammadin sallallahu 'alayhi wa sallama nabiyyan wa rasulan.",
+            arabic = "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ نَبِيًّا وَرَسُولًا",
+            transliteration = "Radhitu billahi rabban wa bil-islami dinan wa bi-muhammadin nabiyyan wa rasulan.",
             translation = "Aku redha dengan Allah sebagai Tuhan, Islam sebagai agama, dan Muhammad ﷺ sebagai Nabi dan Rasul.",
             translationEn = "I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad ﷺ as my Prophet and Messenger.",
             targetCount = 3,
@@ -487,10 +721,10 @@ object ZikrData {
             titleMs = "Ya Allah, sihatkan badan, pendengaran dan penglihatan",
             titleEn = "Health of Body and Senses",
             subtitleEn = "O Allah, grant health to my body and senses",
-            arabic = "اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي لَا إِلَٰهَ إِلَّا أَنْتَ",
-            transliteration = "Allahumma 'afini fi badani, Allahumma 'afini fi sam'i, Allahumma 'afini fi basari, la ilaha illa ant.",
-            translation = "Ya Allah, sihatkanlah badanku. Ya Allah, sihatkanlah pendengaranku. Ya Allah, sihatkanlah penglihatanku. Tiada Tuhan selain Engkau.",
-            translationEn = "O Allah, grant my body good health. O Allah, grant my hearing good health. O Allah, grant my sight good health. There is no deity worthy of worship but You.",
+            arabic = "اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي",
+            transliteration = "Allahumma 'afini fi badani, Allahumma 'afini fi sam'i, Allahumma 'afini fi basari.",
+            translation = "Ya Allah, sihatkanlah badanku. Ya Allah, sihatkanlah pendengaranku. Ya Allah, sihatkanlah penglihatanku.",
+            translationEn = "O Allah, grant my body good health. O Allah, grant my hearing good health. O Allah, grant my sight good health.",
             targetCount = 3,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.SUGHRA, Version.KUBRA)
@@ -557,7 +791,7 @@ object ZikrData {
             translationEn = "O Allah, bestow Your mercy upon Muhammad and upon the family of Muhammad, as You bestowed Your mercy upon Ibrahim and upon the family of Ibrahim. And bestow Your blessings upon Muhammad and upon the family of Muhammad, as You bestowed Your blessings upon Ibrahim and upon the family of Ibrahim in all the worlds. Indeed You are Praiseworthy, Most Glorious.",
             targetCount = 10,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA)
+            versions = setOf(Version.KUBRA)
         ),
 
         // ms 35 — Tasbih + Tahmid + Tahlil + Takbir x100
@@ -573,7 +807,7 @@ object ZikrData {
             translationEn = "Glory be to Allah, all praise is for Allah, there is no deity but Allah, and Allah is the Greatest.",
             targetCount = 100,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA)
+            versions = setOf(Version.KUBRA)
         ),
 
         // ms 37 — La ilaha illallah wahdahu x10
@@ -589,7 +823,7 @@ object ZikrData {
             translationEn = "There is no deity but Allah, alone, with no partner. To Him belongs the dominion and to Him belongs all praise, and He has power over all things.",
             targetCount = 10,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA)
+            versions = setOf(Version.KUBRA)
         ),
 
         // ms 37 — Subhanaka Allahumma (Kaffarat) x3
@@ -615,10 +849,10 @@ object ZikrData {
             titleMs = "Selawat ke atas Nabi yang Ummi",
             titleEn = "Salawat upon the Unlettered Prophet",
             subtitleEn = "Salawat upon the Unlettered Prophet",
-            arabic = "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ النَّبِيِّ الْأُمِّيِّ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ",
-            transliteration = "Allahumma salli 'ala sayyidina muhammadin 'abdika wa nabiyyikan-nabiyyil-ummiyyi wa 'ala alihi wa sahbihi wa sallim.",
-            translation = "Ya Allah, limpahkanlah selawat ke atas junjungan kami Muhammad, hamba-Mu dan Nabi-Mu yang Ummi, dan ke atas keluarga serta para sahabatnya, dan sejahterakanlah.",
-            translationEn = "O Allah, bestow mercy upon our master Muhammad, Your servant and Your Prophet, the unlettered Prophet, and upon his family, his companions, and grant them peace.",
+            arabic = "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ وَرَسُولِكَ النَّبِيِّ الْأُمِّيِّ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا عَدَدَ مَا أَحَاطَ بِهِ عِلْمُكَ وَخَطَّ بِهِ قَلَمُكَ وَأَحْصَاهُ كِتَابُكَ",
+            transliteration = "Allahumma salli 'ala sayyidina muhammadin 'abdika wa nabiyyika wa rasulikan-nabiyyil-ummiyyi wa 'ala alihi wa sahbihi wa sallim tasliman 'adada ma ahata bihi 'ilmuka wa khatta bihi qalamuka wa ahsahu kitabuk.",
+            translation = "Ya Allah, limpahkanlah selawat ke atas junjungan kami Muhammad, hamba-Mu, Nabi-Mu dan Rasul-Mu yang Ummi, dan ke atas keluarga serta para sahabatnya, dan sejahterakanlah sepenuh-penuh kesejahteraan sebanyak bilangan yang meliputi ilmu-Mu, yang ditulis oleh pena-Mu dan yang dihitung oleh kitab-Mu.",
+            translationEn = "O Allah, bestow mercy upon our master Muhammad, Your servant, Your Prophet and Your Messenger, the unlettered Prophet, and upon his family and companions, and grant them complete peace as many times as what Your knowledge encompasses, what Your pen has written, and what Your Book has counted.",
             targetCount = 3,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.SUGHRA, Version.KUBRA)
@@ -631,10 +865,10 @@ object ZikrData {
             titleMs = "Doa untuk para sahabat Nabi",
             titleEn = "Prayer for the Companions",
             subtitleEn = "Prayer for the Companions of the Prophet",
-            arabic = "وَارْضَ اللَّهُمَّ عَنْ سَادَاتِنَا أَبِي بَكْرٍ وَعُمَرَ وَعُثْمَانَ وَعَلِيٍّ وَعَنِ الصَّحَابَةِ أَجْمَعِينَ وَعَنِ التَّابِعِينَ وَتَابِعِي التَّابِعِينَ وَمَنْ تَبِعَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّينِ سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-            transliteration = "War-dhallahummah 'an sadatina abi bakrin wa 'umara wa 'uthmana wa 'aliyyin wa 'anis-sahabati ajma'in...",
-            translation = "Ya Allah, redhailah pemimpin-pemimpin kami Abu Bakar, Umar, Uthman dan Ali, serta semua para sahabat, para tabi'in dan orang-orang yang mengikuti mereka dengan baik hingga hari Kiamat. Maha Suci Tuhanmu, Tuhan Yang Maha Mulia dari sifat yang mereka nisbahkan. Semoga keselamatan dilimpahkan ke atas para Rasul. Segala puji bagi Allah, Tuhan sekalian alam.",
-            translationEn = "O Allah, be pleased with our leaders Abu Bakr, Umar, Uthman and Ali, and with all the Companions, the Successors, and those who follow them in righteousness until the Day of Judgement. Glory be to your Lord, the Lord of Honour, above what they attribute to Him. Peace be upon the Messengers, and all praise is for Allah, Lord of all the worlds.",
+            arabic = "وَارْضَ اللَّهُمَّ عَنْ سَادَاتِنَا أَبِي بَكْرٍ وَعُمَرَ وَعُثْمَانَ وَعَلِيٍّ وَعَنِ الصَّحَابَةِ أَجْمَعِينَ وَعَنِ التَّابِعِينَ وَتَابِعِيهِمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّينِ سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+            transliteration = "War-dhallahummah 'an sadatina abi bakrin wa 'umara wa 'uthmana wa 'aliyyin wa 'anis-sahabati ajma'in wa 'anit-tabi'ina wa tabi'ihim bi-ihsanin ila yawmid-din. Subhana rabbika rabbil-'izzati 'amma yasifun, wa salamun 'alal-mursalin, wal-hamdu lillahi rabbil-'alamin.",
+            translation = "Ya Allah, redhailah pemimpin-pemimpin kami Abu Bakar, Umar, Uthman dan Ali, serta semua para sahabat, para tabi'in dan pengikut mereka dengan baik hingga hari Kiamat. Maha Suci Tuhanmu, Tuhan Yang Maha Mulia dari sifat yang mereka nisbahkan. Semoga keselamatan dilimpahkan ke atas para Rasul. Segala puji bagi Allah, Tuhan sekalian alam.",
+            translationEn = "O Allah, be pleased with our leaders Abu Bakr, Umar, Uthman and Ali, and with all the Companions, the Successors and those who follow them in righteousness until the Day of Judgement. Glory be to your Lord, the Lord of Honour, above what they attribute to Him. Peace be upon the Messengers, and all praise is for Allah, Lord of all the worlds.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.SUGHRA, Version.KUBRA)
@@ -647,10 +881,26 @@ object ZikrData {
             titleMs = "Doa memohon hati yang khusyu",
             titleEn = "Prayer for Humility and Goodness",
             subtitleEn = "Prayer for humility, sincerity and goodness",
-            arabic = "اللَّهُمَّ إِنَّا نَسْأَلُكَ لِسَانًا صَادِقًا وَقَلْبًا سَلِيمًا وَنَسْأَلُكَ قَلْبًا خَاشِعًا وَيَقِينًا صَادِقًا وَنَسْأَلُكَ التَّمَامَ الْغَنِيِّ عَنِ النَّاسِ وَنَسْأَلُكَ كُلَّ خَيْرٍ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْنَا مِنْهُ وَمَا لَمْ نَعْلَمْ وَنَعُوذُبِكَ مِنْ كُلِّ شَرٍّ عَاجِلِهِ وَآجِلِهِ مَا عَلِمْنَا مِنْهُ وَمَا لَمْ نَعْلَمْ وَنَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ وَنَعُوذُبِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ",
-            transliteration = "Allahumma inna nas'aluka lisanan sadiqan wa qalban salima, wa nas'aluka qalban kashi'an wa yaqinan sadiqa...",
-            translation = "Ya Allah, kami memohon kepada-Mu lisan yang jujur dan hati yang selamat. Kami memohon hati yang khusyu dan keyakinan yang benar. Kami memohon kecukupan yang tidak memerlukan manusia. Kami memohon setiap kebaikan yang segera dan yang akan datang. Kami berlindung dari setiap kejahatan. Kami memohon syurga dan apa yang mendekatkan kepadanya, dan berlindung dari neraka dan apa yang mendekatkan kepadanya.",
-            translationEn = "O Allah, we ask You for a truthful tongue and a sound heart. We ask You for a humble heart and sincere certainty. We ask You for contentment that frees us from needing people. We ask You for all good, immediate and future. We seek refuge in You from all evil, immediate and future. We ask You for Paradise and what draws us closer to it, and we seek refuge in You from the Fire and what draws us closer to it.",
+            arabic = "اللَّهُمَّ إِنَّا نَسْأَلُكَ لِسَانًا رَطِبًا بِذِكْرِكَ وَقَلْبًا مَفْعُومًا بِشُكْرِكَ وَبَدَنًا هَيِّنًا لَيِّنًا بِطَاعَتِكَ اللَّهُمَّ إِنَّا نَسْأَلُكَ إِيمَانًا كَامِلًا وَنَسْأَلُكَ قَلْبًا خَاشِعًا وَنَسْأَلُكَ عِلْمًا نَافِعًا وَنَسْأَلُكَ يَقِينًا صَادِقًا وَنَسْأَلُكَ دِينًا قَيِّمًا وَنَسْأَلُكَ الْعَافِيَةَ مِنْ كُلِّ بَلِيَّةٍ وَنَسْأَلُكَ تَمَامَ الْغِنَى عَنِ النَّاسِ وَهَبْ لَنَا حَقِيقَةَ الْإِيمَانِ بِكَ حَتَّى لَا نَخَافَ وَلَا نَرْجُو غَيْرَكَ وَلَا نَعْبُدَ شَيْئًا سِوَاكَ وَاجْعَلْ يَدَكَ مَبْسُوطَةً عَلَيْنَا وَعَلَى أَهْلِينَا وَأَوْلَادِنَا وَمَنْ مَعَنَا بِرَحْمَتِكَ وَلَا تَكِلْنَا إِلَى أَنْفُسِنَا طَرْفَةَ عَيْنٍ وَلَا أَقَلَّ مِنْ ذَلِكَ يَا نَعِمَ الْمُجِيبُ وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ النَّبِيِّ الْكَرِيمِ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ",
+            transliteration = "Allahumma inna nas'aluka lisanan ratiban bidhikrik, wa qalban maf'uman bishukrik, wa badanan hayinan layyinan bita'atik. Allahumma inna nas'aluka imanan kamilan, wa nas'aluka qalban kashi'an, wa nas'aluka 'ilman nafi'an, wa nas'aluka yaqinan sadiqa, wa nas'aluka dinan qayyima, wa nas'aluka al-'afiyata min kulli baliyyah, wa nas'aluka tamam al-ghina 'anin-nas. Wa hab lana haqiqatal-imani bika hatta la nakhafa wa la narju ghayrak, wa la na'buda shay'an siwak. Waj'al yadaka mabsutatan 'alayna wa 'ala ahlina wa awladina wa man ma'ana birahmatik, wa la takilna ila anfusina tarfata 'aynin wa la aqalla min dhalik, ya na'imal-mujib.",
+            translation = "Ya Allah, kami memohon kepada-Mu lisan yang sentiasa basah dengan zikir-Mu, hati yang penuh dengan rasa syukur kepada-Mu, dan badan yang mudah lagi lembut dalam mentaati-Mu. Ya Allah, kami memohon iman yang sempurna, hati yang khusyu, ilmu yang bermanfaat, keyakinan yang benar, agama yang lurus, dan kesejahteraan dari setiap bencana. Kami memohon kecukupan yang tidak memerlukan manusia. Kurniakanlah kepada kami hakikat keimanan kepada-Mu sehingga kami tidak takut dan tidak mengharap selain-Mu, dan tidak menyembah sesuatu pun selain-Mu. Jadikanlah tangan-Mu terbentang ke atas kami, ahli keluarga kami, anak-anak kami dan orang-orang yang bersama kami dengan rahmat-Mu. Janganlah Engkau serahkan kami kepada diri kami sendiri walaupun sekelip mata atau kurang dari itu, wahai sebaik-baik Pemberi jawapan.",
+            translationEn = "O Allah, we ask You for a tongue moist with Your remembrance, a heart filled with gratitude to You, and a body that is gentle and supple in obedience to You. O Allah, we ask You for complete faith, a humble heart, beneficial knowledge, sincere certainty, an upright religion, and well-being from every affliction. We ask You for contentment that frees us from depending on people. Grant us the reality of faith in You such that we fear and hope for none but You, and worship nothing besides You. Lay Your hand of mercy over us, our families, our children, and those with us. Do not leave us to ourselves even for the blink of an eye or less than that, O Best of Responders.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 43 — Ali Imran 26-27 x1
+        ZikrItem(
+            id = 43, sortOrder = 365,
+            title = "Ali Imran: 26–27",
+            titleMs = "Ali Imran ayat 26–27",
+            titleEn = "Ali Imran: 26–27",
+            subtitleEn = "Ali Imran verses 26–27",
+            arabic = "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَنْ تَشَاءُ وَتَنْزِعُ الْمُلْكَ مِمَّنْ تَشَاءُ وَتُعِزُّ مَنْ تَشَاءُ وَتُذِلُّ مَنْ تَشَاءُ بِيَدِكَ الْخَيْرُ إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ تُولِجُ اللَّيْلَ فِي النَّهَارِ وَتُولِجُ النَّهَارَ فِي اللَّيْلِ وَتُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَتُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَتَرْزُقُ مَنْ تَشَاءُ بِغَيْرِ حِسَابٍ",
+            transliteration = "Qulillahumma malikal-mulki tu'til-mulka man tasha' wa tanzi'ul-mulka mimman tasha', wa tu'izzu man tasha' wa tudhillu man tasha', biyadikal-khayr, innaka 'ala kulli shay'in qadir. Tulijul-layla fin-nahari wa tulijun-nahara fil-layl, wa tukhrujul-hayya minal-mayyiti wa tukhrujul-mayyita minal-hayy, wa tarzuqu man tasha' bighayri hisab.",
+            translation = "Katakanlah: Ya Allah, Tuhan yang memiliki kerajaan, Engkau berikan kerajaan kepada siapa yang Engkau kehendaki dan Engkau cabut kerajaan dari siapa yang Engkau kehendaki. Engkau muliakan siapa yang Engkau kehendaki dan Engkau hinakan siapa yang Engkau kehendaki. Di tangan-Mulah segala kebajikan. Sesungguhnya Engkau Maha Kuasa atas segala sesuatu. Engkau masukkan malam ke dalam siang dan Engkau masukkan siang ke dalam malam. Engkau keluarkan yang hidup dari yang mati, dan Engkau keluarkan yang mati dari yang hidup. Engkau beri rezeki siapa yang Engkau kehendaki tanpa hisab.",
+            translationEn = "Say: O Allah, Owner of Sovereignty, You give sovereignty to whom You will and You take sovereignty away from whom You will. You honour whom You will and You humble whom You will. In Your hand is all good. Indeed, You are over all things competent. You cause the night to enter the day, and You cause the day to enter the night; and You bring the living out of the dead, and You bring the dead out of the living. And You give provision to whom You will without account.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.SUGHRA, Version.KUBRA)
@@ -672,20 +922,36 @@ object ZikrData {
             versions = setOf(Version.SUGHRA, Version.KUBRA)
         ),
 
-        // ms 47 — Doa Penutup x1
+        // ms 45–47 — Doa Rabithah (Petang sahaja) x1
         ZikrItem(
             id = 42, sortOrder = 380,
+            title = "Doa Rabithah",
+            titleMs = "Doa perpaduan hati",
+            titleEn = "Prayer of the Heart Bond",
+            subtitleEn = "Prayer for hearts united in love and obedience to Allah",
+            arabic = "اللَّهُمَّ إِنَّكَ تَعْلَمُ أَنَّ هَذِهِ الْقُلُوبَ قَدِ اجْتَمَعَتْ عَلَى مَحَبَّتِكَ وَالْتَفَّتْ عَلَى طَاعَتِكَ وَتَوَحَّدَتْ عَلَى دَعْوَتِكَ وَتَعَاهَدَتْ عَلَى نُصْرَةِ شَرِيعَتِكَ فَوَثِّقِ اللَّهُمَّ رَابِطَتَهَا وَأَدِمْ وُدَّهَا وَاهْدِهَا سُبُلَهَا وَامْلَأْهَا بِنُورِكَ الَّذِي لَا يَخْبُو وَاشْرَحْ صُدُورَهَا بِفَيْضِ الْإِيمَانِ بِكَ وَجَمِيلِ التَّوَكُّلِ عَلَيْكَ وَأَحْيِهَا بِمَعْرِفَتِكَ وَأَمِتْهَا عَلَى الشَّهَادَةِ فِي سَبِيلِكَ إِنَّكَ نِعْمَ الْمَوْلَى وَنِعْمَ النَّصِيرُ آمِينَ اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمَ",
+            transliteration = "Allahumma innaka ta'lamu anna hadhihil-quluba qadij-tama'at 'ala mahabbatik, wal-taffat 'ala ta'atik, wa tawahhdat 'ala da'watik, wa ta'ahadat 'ala nusrati shari'atik. Fa-waththiqil-lahumma rabitataها wa adim wuddaha wah-diha subulaha wam-la'ha binurikal-ladhi la yakhbu, wash-rah suduraha bifaydil-imani bika wa jamilit-tawakkuli 'alayk, wa ahyiha bima'rifatik wa amitها 'alash-shahadata fi sabilik. Innaka ni'mal-mawla wa ni'man-nasir. Amin. Allahumma salli 'ala sayyidina muhammadin wa 'ala alihi wa sahbihi wa sallim.",
+            translation = "Ya Allah, sesungguhnya Engkau mengetahui bahawa hati-hati ini telah berhimpun atas kecintaan kepada-Mu, bertaut atas ketaatan kepada-Mu, bersatu atas seruan kepada-Mu, dan berjanji untuk menolong syariat-Mu. Maka kukuhkanlah ikatan mereka, kekalkanlah kasih sayang mereka, tunjukkanlah mereka jalan-jalan-Mu, penuhilah mereka dengan cahaya-Mu yang tidak padam, lapangkanlah dada mereka dengan limpahan iman kepada-Mu dan keindahan tawakkal kepada-Mu. Hidupkanlah mereka dengan makrifat-Mu dan matikanlah mereka sebagai syahid di jalan-Mu. Sesungguhnya Engkaulah sebaik-baik pelindung dan sebaik-baik penolong. Amin. Ya Allah, limpahkanlah selawat ke atas junjungan kami Muhammad dan ke atas keluarga serta para sahabatnya, dan sejahterakanlah.",
+            translationEn = "O Allah, You know that these hearts have gathered in love for You, clung together in obedience to You, united in Your cause, and pledged to support Your law. So strengthen their bond, make their love lasting, guide them on their paths, fill them with Your light that never fades, expand their chests with the overflow of faith in You and beautiful reliance upon You. Give them life through Your knowledge and let them die as martyrs in Your path. Indeed You are the best Protector and the best Helper. Amin. O Allah, bestow mercy upon our master Muhammad and upon his family and companions, and grant them peace.",
+            targetCount = 1,
+            sessions = setOf(Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 47 — Doa Penutup x1
+        ZikrItem(
+            id = 44, sortOrder = 390,
             title = "Doa Penutup",
             titleMs = "Doa penutup Al-Mathurat",
             titleEn = "Closing Prayer",
             subtitleEn = "Closing prayer of Al-Mathurat",
-            arabic = "اللَّهُمَّ إِنَّكَ تَعْلَمُ أَنَّ هَذِهِ الْقُلُوبَ قَدِ اجْتَمَعَتْ عَلَى مَحَبَّتِكَ وَالتَقَتْ عَلَى طَاعَتِكَ وَتَوَحَّدَتْ عَلَى دَعْوَتِكَ وَتَعَاهَدَتْ عَلَى نُصْرَةِ شَرِيعَتِكَ فَوَثِّقْ اللَّهُمَّ رَابِطَتَهَا وَأَدِمْ وُدَّهَا وَاهْدِهَا سُبُلَهَا وَامْلَأْهَا بِنُورِكَ الَّذِي لَا يَخْبُو وَاشْرَحْ صُدُورَهَا بِفَيْضِ الْإِيمَانِ بِكَ وَجَمِيلِ التَّوَكُّلِ عَلَيْكَ وَأَحْيِهَا بِمَعْرِفَتِكَ وَأَمِتْهَا عَلَى الشَّهَادَةِ فِي سَبِيلِكَ إِنَّكَ نِعْمَ الْمَوْلَى وَنِعْمَ النَّصِيرُ",
-            transliteration = "Allahumma innaka ta'lamu anna hadhihil-quluba qadij-tama'at 'ala mahabbatik...",
-            translation = "Ya Allah, sesungguhnya Engkau mengetahui bahawa hati-hati ini telah berhimpun atas kecintaan kepada-Mu, bertemu atas ketaatan kepada-Mu, bersatu atas seruan kepada-Mu, dan berjanji untuk menolong syariat-Mu. Maka kukuhkanlah ikatan mereka, kekalkanlah kasih sayang mereka, tunjukkanlah mereka jalan-jalan-Mu, penuhilah mereka dengan cahaya-Mu yang tidak padam, lapangkanlah dada mereka dengan limpahan iman kepada-Mu. Hidupkanlah mereka dengan makrifat-Mu dan matikanlah mereka sebagai syahid di jalan-Mu. Sesungguhnya Engkaulah sebaik-baik pelindung dan sebaik-baik penolong.",
-            translationEn = "O Allah, You know that these hearts have gathered in love for You, met in obedience to You, united in Your cause, and pledged to support Your law. So strengthen their bond, make their love lasting, guide them on their paths, fill them with Your light that never fades, expand their hearts with the overflow of faith in You and beautiful reliance upon You, give them life through Your knowledge, and let them die as martyrs in Your path. Indeed You are the best Protector and the best Helper.",
+            arabic = "وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ تَسْلِيمًا كَثِيرًا",
+            transliteration = "Wa sallallahu 'ala sayyidina muhammadin wa 'ala alihi wa sahbihi wa sallama tasliman kathira.",
+            translation = "Semoga Allah melimpahkan selawat ke atas junjungan kami Muhammad dan ke atas keluarga serta para sahabatnya, dan sejahterakanlah dengan penuh kesejahteraan.",
+            translationEn = "And may Allah bestow mercy upon our master Muhammad and upon his family and companions, and grant them abundant peace.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.KUBRA, Version.SUGHRA)
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
         )
     )
 

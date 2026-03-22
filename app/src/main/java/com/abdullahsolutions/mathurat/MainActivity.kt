@@ -67,7 +67,17 @@ class MainActivity : AppCompatActivity() {
             { id, count -> saveCount(id, count) },
             settingsPrefs.getFloat("arabic_font_size", 28f),
             settingsPrefs.getBoolean("show_english", false),
-            settingsPrefs.getBoolean("show_transliteration", false)
+            settingsPrefs.getBoolean("show_transliteration", false),
+            onItemCompleted = { position ->
+                val nextPosition = position + 1
+                if (nextPosition < adapter.itemCount) {
+                    val scroller = object : androidx.recyclerview.widget.LinearSmoothScroller(this@MainActivity) {
+                        override fun getVerticalSnapPreference() = SNAP_TO_START
+                    }
+                    scroller.targetPosition = nextPosition
+                    binding.recyclerView.layoutManager?.startSmoothScroll(scroller)
+                }
+            }
         )
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)

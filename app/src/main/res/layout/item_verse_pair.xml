@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/tvVerseArabic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/arabic_text"
+        android:textSize="28sp"
+        android:lineSpacingMultiplier="1.8"
+        android:gravity="right"
+        android:textAlignment="viewEnd"
+        android:fontFamily="@font/amiri_regular"
+        android:textDirection="rtl" />
+
+    <TextView
+        android:id="@+id/tvVerseTranslit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/transliteration_text"
+        android:textSize="13sp"
+        android:lineSpacingMultiplier="1.4"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvVerseTranslation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        android:lineSpacingMultiplier="1.4"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/verseDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/divider"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,5 +1,12 @@
 package com.abdullahsolutions.mathurat.model
 
+data class VerseEntry(
+    val arabic: String,
+    val transliteration: String = "",
+    val translationMs: String = "",
+    val translationEn: String = ""
+)
+
 data class ZikrItem(
     val id: Int,
     val sortOrder: Int,
@@ -14,6 +21,7 @@ data class ZikrItem(
     val targetCount: Int,
     val sessions: Set<Session>,
     val versions: Set<Version>,
+    val pairedVerses: List<VerseEntry>? = null,
     var currentCount: Int = 0
 ) {
     val isCompleted: Boolean get() = currentCount >= targetCount
