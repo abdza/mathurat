@@ -5,7 +5,11 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.media.ToneGenerator
 import android.media.AudioManager
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,9 +21,20 @@ class ZikrCounterActivity : AppCompatActivity() {
     private val prefs by lazy { getSharedPreferences("mathurat_settings", Context.MODE_PRIVATE) }
     private val countPrefs by lazy { getSharedPreferences("mathurat_zikr_counter", Context.MODE_PRIVATE) }
     private var count = 0
+    private var lastTapTime = 0L
+    private val TAP_DEBOUNCE_MS = 300L
 
     private val toneGenerator by lazy {
         ToneGenerator(AudioManager.STREAM_MUSIC, 60)
+    }
+
+    private val vibrator by lazy {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        }
     }
 
     private val colorNormal by lazy { ContextCompat.getColor(this, R.color.background) }
@@ -42,10 +57,14 @@ class ZikrCounterActivity : AppCompatActivity() {
         updateDisplay()
 
         binding.tapZone.setOnClickListener {
+            val now = System.currentTimeMillis()
+            if (now - lastTapTime < TAP_DEBOUNCE_MS) return@setOnClickListener
+            lastTapTime = now
             count++
             updateDisplay()
             playClick()
             flashBackground()
+            vibrateForCount(count)
             countPrefs.edit().putInt("count", count).apply()
         }
 
@@ -65,6 +84,20 @@ class ZikrCounterActivity : AppCompatActivity() {
             toneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP, 40)
         } catch (e: Exception) {
             // ignore if tone not available
+        }
+    }
+
+    private fun vibrateForCount(count: Int) {
+        val pattern: LongArray = when {
+            count % 100 == 0 -> longArrayOf(0, 160, 80, 160, 80, 160) // triple pulse at 100
+            count % 33 == 0  -> longArrayOf(0, 120, 80, 120)          // double pulse at 33
+            else             -> return
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(pattern, -1)
         }
     }
 
