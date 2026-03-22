@@ -224,8 +224,19 @@ object AchievementManager {
     /**
      * Call this when the user finishes all items for [version]/[session].
      * Records the completion for today and returns any newly earned achievements.
+     * Completing Kubra also counts as completing Sughra (Sughra is a subset of Kubra).
      */
     fun recordAndCheck(version: Version, session: Session, context: Context): List<Achievement> {
+        val newly = mutableListOf<Achievement>()
+        // Kubra completion implicitly includes Sughra
+        if (version == Version.KUBRA) {
+            newly.addAll(recordAndCheckSingle(Version.SUGHRA, session, context))
+        }
+        newly.addAll(recordAndCheckSingle(version, session, context))
+        return newly
+    }
+
+    private fun recordAndCheckSingle(version: Version, session: Session, context: Context): List<Achievement> {
         val today = dateString(Calendar.getInstance())
         val compPrefs = compPrefs(context)
         val achPrefs = achPrefs(context)
@@ -254,7 +265,6 @@ object AchievementManager {
         if (otherDone) award("FIRST_FULL_DAY_${version.name}")
 
         // Streak achievements
-        val sessionKey = session.name
         val morningStreak = calculateStreak(version, "MORNING", context)
         val eveningStreak = calculateStreak(version, "EVENING", context)
         val fullStreak = calculateStreak(version, null, context)
