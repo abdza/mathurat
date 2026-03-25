@@ -98,17 +98,42 @@ class MainActivity : AppCompatActivity() {
         if (currentItems.isNotEmpty() && currentItems.all { it.isCompleted }) {
             cycleAwardedToday = true
             val newAchievements = AchievementManager.recordAndCheck(currentVersion, currentSession, this)
-            if (newAchievements.isNotEmpty()) {
-                showAchievementDialog(newAchievements)
-            }
+            val streaks = AchievementManager.getStreaks(currentVersion, this)
+            val streak = if (currentSession == Session.MORNING) streaks.first else streaks.second
+            showCongratulationsDialog(streak, newAchievements)
         }
     }
 
-    private fun showAchievementDialog(achievements: List<Achievement>) {
+    private fun showCongratulationsDialog(streak: Int, achievements: List<Achievement>) {
         val en = settingsPrefs.getBoolean("show_english", false)
-        // Show one at a time, chained
+        val sessionLabel = if (currentSession == Session.MORNING) {
+            if (en) "Morning" else "Pagi"
+        } else {
+            if (en) "Evening" else "Petang"
+        }
+        val versionLabel = if (currentVersion == Version.SUGHRA) "Sughra" else "Kubra"
+
+        val title = if (en) "Congratulations!" else "Tahniah!"
+        val body = if (en) {
+            "You have completed Al-Mathurat $versionLabel ($sessionLabel)." +
+            "\n\n🔥 Current streak: $streak day${if (streak != 1) "s" else ""}"
+        } else {
+            "Anda telah khatam Al-Mathurat $versionLabel ($sessionLabel)." +
+            "\n\n🔥 Rentetan semasa: $streak hari"
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle("🎉  $title")
+            .setMessage(body)
+            .setPositiveButton("OK") { _, _ -> showAchievementDialog(achievements) { resetAllCounts() } }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun showAchievementDialog(achievements: List<Achievement>, onDone: () -> Unit) {
+        val en = settingsPrefs.getBoolean("show_english", false)
         fun showNext(index: Int) {
-            if (index >= achievements.size) return
+            if (index >= achievements.size) { onDone(); return }
             val ach = achievements[index]
             val title = if (en) ach.titleEn else ach.titleMs
             val desc = if (en) ach.descEn else ach.descMs

@@ -78,73 +78,100 @@ object ZikrData {
             )
         ),
 
-        // ms 5–8 — Al-Baqarah 255–257
+        // ms 5 — Al-Baqarah 255 (Ayatul Kursi)
         ZikrItem(
             id = 3, sortOrder = 30,
-            title = "Al-Baqarah: 255–257",
-            titleMs = "Ayatul Kursi + Ayat Lanjutan",
-            titleEn = "Al-Baqarah: 255–257 (Ayatul Kursi)",
-            subtitleEn = "Ayatul Kursi + Following Verses",
-            arabic = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ ۝ لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ ۝ اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
-            transliteration = "Allahu la ilaha illa huwal-hayyul-qayyum, la ta'khudhahu sinatuw wa la nawm, lahu ma fis-samawati wa ma fil-ardh...",
-            translation = "Allah, tidak ada Tuhan melainkan Dia Yang Hidup kekal lagi terus-menerus mengurus makhluk-Nya; tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya... Tidak ada paksaan untuk memasuki agama Islam; sesungguhnya telah jelas jalan yang benar daripada jalan yang sesat. Allah adalah Pelindung orang-orang yang beriman; Dia mengeluarkan mereka dari kegelapan kepada cahaya.",
-            translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. There shall be no compulsion in religion. Allah is the ally of those who believe: He brings them out from darknesses into the light.",
+            title = "Al-Baqarah: 255",
+            titleMs = "Ayatul Kursi (Al-Baqarah ayat 255)",
+            titleEn = "Al-Baqarah: 255",
+            subtitleEn = "Ayatul Kursi",
+            arabic = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+            transliteration = "Allahu la ilaha illa huwal-hayyul-qayyum, la ta'khudhahu sinatuw wa la nawm, lahu ma fis-samawati wa ma fil-ardh, man dhal-ladhi yashfa'u 'indahu illa bi-idhnih, ya'lamu ma bayna aydihim wa ma khalfahum, wa la yuhituna bi-shay'im min 'ilmihi illa bima sha', wasi'a kursiyyuhus-samawati wal-ardha wa la ya'uduhu hifzuhuma wa huwal-'aliyyul-'azim.",
+            translation = "Allah, tidak ada Tuhan melainkan Dia Yang Hidup kekal lagi terus-menerus mengurus makhluk-Nya; tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan yang dikehendaki-Nya. Kursi-Nya meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.",
+            translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA),
-            pairedVerses = listOf(
-                VerseEntry(
-                    arabic = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-                    transliteration = "Allahu la ilaha illa huwal-hayyul-qayyum, la ta'khudhahu sinatuw wa la nawm, lahu ma fis-samawati wa ma fil-ardh, man dhal-ladhi yashfa'u 'indahu illa bi-idhnih, ya'lamu ma bayna aydihim wa ma khalfahum, wa la yuhituna bi-shay'im min 'ilmihi illa bima sha', wasi'a kursiyyuhus-samawati wal-ardha wa la ya'uduhu hifzuhuma wa huwal-'aliyyul-'azim.",
-                    translationMs = "Allah, tidak ada Tuhan melainkan Dia Yang Hidup kekal lagi terus-menerus mengurus makhluk-Nya; tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan yang dikehendaki-Nya. Kursi-Nya meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.",
-                    translationEn = "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great."
-                ),
-                VerseEntry(
-                    arabic = "لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ",
-                    transliteration = "La ikraha fid-din, qad tabayyanar-rushdu minal-ghayy, faman yakfur bit-taghuti wa yu'min billahi faqadis-tamsaka bil-'urwatil-wuthqa lan-fisama laha wallahu sami'un 'alim.",
-                    translationMs = "Tidak ada paksaan untuk memasuki agama Islam; sesungguhnya telah jelas jalan yang benar daripada jalan yang sesat. Kerana itu barangsiapa yang ingkar kepada Thaghut dan beriman kepada Allah, maka sesungguhnya ia telah berpegang kepada buhul tali yang amat kuat yang tidak akan putus. Dan Allah Maha Mendengar lagi Maha Mengetahui.",
-                    translationEn = "There shall be no compulsion in religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing."
-                ),
-                VerseEntry(
-                    arabic = "اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
-                    transliteration = "Allahu waliyyul-ladhina amanu yukhrijuhum minaẓ-ẓulumati ilan-nur, walladhina kafaru awliya'uhumut-taghut yukhrijunahum minan-nuri ilaẓ-ẓulumat, ula'ika ash-habun-nar, hum fiha khalidun.",
-                    translationMs = "Allah Pelindung orang-orang yang beriman; Dia mengeluarkan mereka dari kegelapan kepada cahaya. Dan orang-orang yang kafir, pelindung-pelindungnya ialah syaitan, yang mengeluarkan mereka daripada cahaya kepada kegelapan. Mereka itu adalah penghuni neraka; mereka kekal di dalamnya.",
-                    translationEn = "Allah is the ally of those who believe: He brings them out from darknesses into the light. And those who disbelieve — their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein."
-                )
-            )
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
         ),
 
-        // ms 9 — Al-Baqarah 284–286
+        // ms 7 — Al-Baqarah 256
         ZikrItem(
-            id = 4, sortOrder = 40,
-            title = "Al-Baqarah: 284–286",
-            titleMs = "Al-Baqarah ayat 284–286",
-            titleEn = "Al-Baqarah: 284–286",
-            subtitleEn = "Al-Baqarah verses 284–286",
-            arabic = "لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ ۝ آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ ۝ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
-            transliteration = "Lillahi ma fis-samawati wa ma fil-ardh...",
-            translation = "Kepunyaan Allah-lah segala apa yang ada di langit dan di bumi. Rasul beriman kepada Al-Quran yang diturunkan kepadanya dari Tuhannya, demikian pula orang-orang yang beriman... Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya. Ya Tuhan kami, janganlah Engkau hukum kami jika kami lupa atau kami tersalah. Ya Tuhan kami, ampunilah kami, kasihilah kami. Engkaulah pelindung kami, tolonglah kami menghadapi kaum yang kafir.",
-            translationEn = "To Allah belongs whatever is in the heavens and whatever is in the earth. The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers. Allah does not burden a soul beyond that it can bear. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, grant us forgiveness. You are our protector, so give us victory over the disbelieving people.",
+            id = 45, sortOrder = 31,
+            title = "Al-Baqarah: 256",
+            titleMs = "Al-Baqarah ayat 256",
+            titleEn = "Al-Baqarah: 256",
+            subtitleEn = "Al-Baqarah verse 256",
+            arabic = "لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَن يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِن بِاللَّهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ لَا انفِصَامَ لَهَا وَاللَّهُ سَمِيعٌ عَلِيمٌ",
+            transliteration = "La ikraha fid-din, qad tabayyanar-rushdu minal-ghayy, faman yakfur bit-taghuti wa yu'min billahi faqadis-tamsaka bil-'urwatil-wuthqa lan-fisama laha wallahu sami'un 'alim.",
+            translation = "Tidak ada paksaan untuk memasuki agama Islam; sesungguhnya telah jelas jalan yang benar daripada jalan yang sesat. Kerana itu barangsiapa yang ingkar kepada Thaghut dan beriman kepada Allah, maka sesungguhnya ia telah berpegang kepada buhul tali yang amat kuat yang tidak akan putus. Dan Allah Maha Mendengar lagi Maha Mengetahui.",
+            translationEn = "There shall be no compulsion in religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
-            versions = setOf(Version.SUGHRA, Version.KUBRA),
-            pairedVerses = listOf(
-                VerseEntry(
-                    arabic = "لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
-                    translationMs = "Kepunyaan Allah-lah segala apa yang ada di langit dan di bumi. Dan jika kamu melahirkan apa yang ada di dalam hatimu atau kamu menyembunyikannya, nescaya Allah akan membuat perhitungan dengan kamu tentang perbuatanmu itu. Maka Allah mengampuni siapa yang dikehendaki-Nya dan menyeksa siapa yang dikehendaki-Nya; dan Allah Maha Kuasa atas segala sesuatu.",
-                    translationEn = "To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent."
-                ),
-                VerseEntry(
-                    arabic = "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ",
-                    translationMs = "Rasul telah beriman kepada Al-Quran yang diturunkan kepadanya dari Tuhannya, demikian pula orang-orang yang beriman. Semuanya beriman kepada Allah, malaikat-malaikat-Nya, kitab-kitab-Nya dan rasul-rasul-Nya. Mereka mengatakan: 'Kami tidak membeza-bezakan antara seseorangpun dari rasul-rasul-Nya'; dan mereka mengatakan: 'Kami dengar dan kami taat.' Ampunilah kami ya Tuhan kami dan kepada Engkaulah tempat kembali.",
-                    translationEn = "The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers, saying: We make no distinction between any of His messengers. And they say: We hear and we obey. Grant us Your forgiveness, our Lord, and to You is the final destination."
-                ),
-                VerseEntry(
-                    arabic = "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
-                    translationMs = "Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya. Ia mendapat pahala dari kebajikan yang diusahakannya dan ia mendapat seksa dari kejahatan yang dikerjakannya. Doa mereka: Ya Tuhan kami, janganlah Engkau hukum kami jika kami lupa atau kami tersalah. Ya Tuhan kami, janganlah Engkau bebankan kepada kami beban yang berat sebagaimana Engkau bebankan kepada orang-orang yang sebelum kami. Ya Tuhan kami, janganlah Engkau pikulkan kepada kami apa yang tidak sanggup kami memikulnya. Beri maaflah kami; ampunilah kami; dan rahmatilah kami. Engkaulah Penolong kami, maka tolonglah kami terhadap kaum yang kafir.",
-                    translationEn = "Allah does not burden a soul beyond that it can bear. It will have the consequence of what good it has gained, and it will bear the consequence of what evil it has earned. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, lay not upon us a burden like that which You laid upon those before us. Our Lord, burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people."
-                )
-            )
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 8 — Al-Baqarah 257
+        ZikrItem(
+            id = 46, sortOrder = 32,
+            title = "Al-Baqarah: 257",
+            titleMs = "Al-Baqarah ayat 257",
+            titleEn = "Al-Baqarah: 257",
+            subtitleEn = "Al-Baqarah verse 257",
+            arabic = "اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُم مِّنَ النُّورِ إِلَى الظُّلُمَاتِ أُولَٰئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ",
+            transliteration = "Allahu waliyyul-ladhina amanu yukhrijuhum minaẓ-ẓulumati ilan-nur, walladhina kafaru awliya'uhumut-taghut yukhrijunahum minan-nuri ilaẓ-ẓulumat, ula'ika ash-habun-nar, hum fiha khalidun.",
+            translation = "Allah Pelindung orang-orang yang beriman; Dia mengeluarkan mereka dari kegelapan kepada cahaya. Dan orang-orang yang kafir, pelindung-pelindungnya ialah syaitan, yang mengeluarkan mereka daripada cahaya kepada kegelapan. Mereka itu adalah penghuni neraka; mereka kekal di dalamnya.",
+            translationEn = "Allah is the ally of those who believe: He brings them out from darknesses into the light. And those who disbelieve — their allies are Taghut. They take them out of the light into darknesses. Those are the companions of the Fire; they will abide eternally therein.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 9 — Al-Baqarah 284
+        ZikrItem(
+            id = 4, sortOrder = 40,
+            title = "Al-Baqarah: 284",
+            titleMs = "Al-Baqarah ayat 284",
+            titleEn = "Al-Baqarah: 284",
+            subtitleEn = "Al-Baqarah verse 284",
+            arabic = "لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَإِن تُبْدُوا مَا فِي أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ اللَّهُ فَيَغْفِرُ لِمَن يَشَاءُ وَيُعَذِّبُ مَن يَشَاءُ وَاللَّهُ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+            transliteration = "Lillahi ma fis-samawati wa ma fil-ardh, wa in tubdu ma fi anfusikum aw tukhfuh, yuhasisibkum bihillah, fayaghfiru liman yasha'u wa yu'adhdhibu man yasha', wallahu 'ala kulli shay'in qadir.",
+            translation = "Kepunyaan Allah-lah segala apa yang ada di langit dan di bumi. Dan jika kamu melahirkan apa yang ada di dalam hatimu atau kamu menyembunyikannya, nescaya Allah akan membuat perhitungan dengan kamu tentang perbuatanmu itu. Maka Allah mengampuni siapa yang dikehendaki-Nya dan menyeksa siapa yang dikehendaki-Nya; dan Allah Maha Kuasa atas segala sesuatu.",
+            translationEn = "To Allah belongs whatever is in the heavens and whatever is in the earth. Whether you show what is within yourselves or conceal it, Allah will bring you to account for it. Then He will forgive whom He wills and punish whom He wills, and Allah is over all things competent.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 9 — Al-Baqarah 285
+        ZikrItem(
+            id = 47, sortOrder = 41,
+            title = "Al-Baqarah: 285",
+            titleMs = "Al-Baqarah ayat 285",
+            titleEn = "Al-Baqarah: 285",
+            subtitleEn = "Al-Baqarah verse 285",
+            arabic = "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ",
+            transliteration = "Amanar-rasulu bima unzila ilayhi mir-rabbihi wal-mu'minun, kullun amana billahi wa mala'ikatihi wa kutubihi wa rusulihi, la nufarriqu bayna ahadin mir-rusulihi, wa qalu sami'na wa ata'na ghufranaka rabbana wa ilaykal-masir.",
+            translation = "Rasul telah beriman kepada Al-Quran yang diturunkan kepadanya dari Tuhannya, demikian pula orang-orang yang beriman. Semuanya beriman kepada Allah, malaikat-malaikat-Nya, kitab-kitab-Nya dan rasul-rasul-Nya. Mereka mengatakan: 'Kami tidak membeza-bezakan antara seseorangpun dari rasul-rasul-Nya'; dan mereka mengatakan: 'Kami dengar dan kami taat.' Ampunilah kami ya Tuhan kami dan kepada Engkaulah tempat kembali.",
+            translationEn = "The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers, saying: We make no distinction between any of His messengers. And they say: We hear and we obey. Grant us Your forgiveness, our Lord, and to You is the final destination.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
+        ),
+
+        // ms 9 — Al-Baqarah 286
+        ZikrItem(
+            id = 48, sortOrder = 42,
+            title = "Al-Baqarah: 286",
+            titleMs = "Al-Baqarah ayat 286",
+            titleEn = "Al-Baqarah: 286",
+            subtitleEn = "Al-Baqarah verse 286",
+            arabic = "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+            transliteration = "La yukallifullahu nafsan illa wus'aha, laha ma kasabat wa 'alayha mak-tasabat, rabbana la tu'akhidhna in nasina aw akhta'na, rabbana wa la tahmil 'alayna isran kama hamaltahu 'alal-ladhina min qablina, rabbana wa la tuhammilna ma la taqata lana bih, wa'fu 'anna waghfir lana warhamna, anta mawlana fansurna 'alal-qawmil-kafirin.",
+            translation = "Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya. Ia mendapat pahala dari kebajikan yang diusahakannya dan ia mendapat seksa dari kejahatan yang dikerjakannya. Doa mereka: Ya Tuhan kami, janganlah Engkau hukum kami jika kami lupa atau kami tersalah. Ya Tuhan kami, janganlah Engkau bebankan kepada kami beban yang berat sebagaimana Engkau bebankan kepada orang-orang yang sebelum kami. Ya Tuhan kami, janganlah Engkau pikulkan kepada kami apa yang tidak sanggup kami memikulnya. Beri maaflah kami; ampunilah kami; dan rahmatilah kami. Engkaulah Penolong kami, maka tolonglah kami terhadap kaum yang kafir.",
+            translationEn = "Allah does not burden a soul beyond that it can bear. It will have the consequence of what good it has gained, and it will bear the consequence of what evil it has earned. Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, lay not upon us a burden like that which You laid upon those before us. Our Lord, burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.SUGHRA, Version.KUBRA)
         ),
 
         // ms 9 (bawah) — Ali Imran 1-2
