@@ -51,7 +51,7 @@ class CalendarAdapter(
                     com.abdullahsolutions.mathurat.R.drawable.bg_today_circle_highlight
                 )
             } else {
-                tvDayNumber.setTextColor(Color.parseColor("#1A1A1A"))
+                tvDayNumber.setTextColor(Color.WHITE)
                 tvDayNumber.setBackgroundResource(
                     com.abdullahsolutions.mathurat.R.drawable.bg_today_circle
                 )

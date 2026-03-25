@@ -3,6 +3,8 @@ package com.abdullahsolutions.mathurat
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.abdullahsolutions.mathurat.adapter.CalendarAdapter
 import com.abdullahsolutions.mathurat.databinding.ActivityCalendarBinding
@@ -33,7 +35,21 @@ class CalendarActivity : AppCompatActivity() {
         binding = ActivityCalendarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(null)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val navBar = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val extraPadding = (12 * resources.displayMetrics.density).toInt()
+            binding.legendLayout.setPadding(
+                binding.legendLayout.paddingLeft,
+                binding.legendLayout.paddingTop,
+                binding.legendLayout.paddingRight,
+                navBar.bottom + extraPadding
+            )
+            insets
+        }
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         // Set display to the 1st of current month
         displayCal.set(Calendar.DAY_OF_MONTH, 1)

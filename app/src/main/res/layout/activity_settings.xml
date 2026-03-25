@@ -8,7 +8,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -47,6 +48,7 @@
                     android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/tvLabelLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Bahasa Terjemahan"
@@ -103,6 +105,7 @@
                     android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/tvLabelTranslit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rumi / Transliterasi"
@@ -118,6 +121,7 @@
                         android:gravity="center_vertical">
 
                         <TextView
+                            android:id="@+id/tvLabelTranslitDesc"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -151,6 +155,7 @@
                     android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/tvLabelFontSize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Saiz Huruf Arab"
