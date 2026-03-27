@@ -64,7 +64,7 @@ class ZikrCounterActivity : AppCompatActivity() {
             updateDisplay()
             playClick()
             flashBackground()
-            vibrateForCount(count)
+            vibrateForTap(count)
             countPrefs.edit().putInt("count", count).apply()
         }
 
@@ -87,14 +87,26 @@ class ZikrCounterActivity : AppCompatActivity() {
         }
     }
 
-    private fun vibrateForCount(count: Int) {
-        val pattern: LongArray = when {
-            count % 100 == 0 -> longArrayOf(0, 160, 80, 160, 80, 160) // triple pulse at 100
-            count % 33 == 0  -> longArrayOf(0, 120, 80, 120)          // double pulse at 33
-            else             -> return
+    private fun vibrateForTap(count: Int) {
+        when {
+            count % 100 == 0 && prefs.getBoolean("vibrate_on_100", true) -> {
+                // double pulse at full amplitude
+                vibratePattern(longArrayOf(0, 400, 150, 400), 255)
+            }
+            count % 33 == 0 && prefs.getBoolean("vibrate_on_33", true) -> {
+                // strong single pulse at full amplitude
+                vibratePattern(longArrayOf(0, 400), 255)
+            }
+            prefs.getBoolean("vibrate_on_click", false) -> {
+                vibratePattern(longArrayOf(0, 30), VibrationEffect.DEFAULT_AMPLITUDE)
+            }
         }
+    }
+
+    private fun vibratePattern(pattern: LongArray, amplitude: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1))
+            val amplitudes = IntArray(pattern.size) { i -> if (i % 2 == 0) 0 else amplitude }
+            vibrator.vibrate(VibrationEffect.createWaveform(pattern, amplitudes, -1))
         } else {
             @Suppress("DEPRECATION")
             vibrator.vibrate(pattern, -1)

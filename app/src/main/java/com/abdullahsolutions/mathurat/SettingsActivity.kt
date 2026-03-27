@@ -25,6 +25,9 @@ class SettingsActivity : AppCompatActivity() {
         setupLanguageSwitch()
         setupTranslitSwitch()
         setupFontSizeSeekBar(isEnglish)
+        setupVibrateClick()
+        setupVibrate33()
+        setupVibrate100()
     }
 
     private fun applyLanguage(en: Boolean) {
@@ -33,6 +36,10 @@ class SettingsActivity : AppCompatActivity() {
         binding.tvLabelTranslit.text = if (en) "Transliteration" else "Rumi / Transliterasi"
         binding.tvLabelTranslitDesc.text = if (en) "Show transliteration" else "Papar transliterasi Rumi"
         binding.tvLabelFontSize.text = if (en) "Arabic Font Size" else "Saiz Huruf Arab"
+        binding.tvLabelVibration.text = if (en) "Zikir Counter Vibration" else "Getaran Kaunter Zikir"
+        binding.tvLabelVibrateClick.text = if (en) "Vibrate on each tap" else "Getaran setiap ketukan"
+        binding.tvLabelVibrate33.text = if (en) "Vibrate at every 33" else "Getaran setiap 33"
+        binding.tvLabelVibrate100.text = if (en) "Vibrate at every 100" else "Getaran setiap 100"
 
         // Update font size label with current size
         val currentSize = prefs.getFloat("arabic_font_size", 28f)
@@ -53,6 +60,30 @@ class SettingsActivity : AppCompatActivity() {
         switch.isChecked = prefs.getBoolean("show_transliteration", false)
         switch.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("show_transliteration", isChecked).apply()
+        }
+    }
+
+    private fun setupVibrateClick() {
+        val switch = binding.switchVibrateClick
+        switch.isChecked = prefs.getBoolean("vibrate_on_click", false)
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("vibrate_on_click", isChecked).apply()
+        }
+    }
+
+    private fun setupVibrate33() {
+        val switch = binding.switchVibrate33
+        switch.isChecked = prefs.getBoolean("vibrate_on_33", true)
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("vibrate_on_33", isChecked).apply()
+        }
+    }
+
+    private fun setupVibrate100() {
+        val switch = binding.switchVibrate100
+        switch.isChecked = prefs.getBoolean("vibrate_on_100", true)
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("vibrate_on_100", isChecked).apply()
         }
     }
 
