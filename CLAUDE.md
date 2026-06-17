@@ -81,7 +81,7 @@ enum class Version { SUGHRA, KUBRA }
 
 ## Verse-by-Verse Display
 
-Multi-verse Quran items (ids 2–11, **excluding** Al-Fatihah and the 3 Quls) use `pairedVerses` to display each Arabic verse immediately followed by its translation.
+Multi-verse Quran items use `pairedVerses` to display each Arabic verse immediately followed by its translation. This includes Quran surahs (ids 2, 5, 7–11, 49–52) but **excludes** Al-Fatihah, single verses (Ayatul Kursi, Tawbah 129), and the 3 Quls.
 
 - When `pairedVerses != null`: the adapter shows each `VerseEntry` in sequence (arabic → transliteration if enabled → translation), with a divider between entries. The single-block `tvArabic`/`tvTranslation` views are hidden.
 - When `pairedVerses == null`: normal single-block display (all Arabic then translation).
@@ -128,7 +128,7 @@ The `getZikr(session, version)` function in `ZikrData` filters by both session a
 
 ---
 
-## Content List (ZikrData — 44 items)
+## Content List (ZikrData — 48 items)
 
 All items appear in MORNING and EVENING unless noted. Page references (`ms X`) refer to the physical booklet in `/home/abdza/data/kakikoding/mathurat_sample/`.
 
@@ -138,13 +138,21 @@ All items appear in MORNING and EVENING unless noted. Page references (`ms X`) r
 |----|-----------|-------|-----------|---------|--------------|
 | 1 | 10 | Al-Fatihah | ms 1 | SUGHRA + KUBRA | No |
 | 2 | 20 | Al-Baqarah: 1–5 | ms 3 | SUGHRA + KUBRA | Yes (5 verses) |
-| 3 | 30 | Al-Baqarah: 255–257 (Ayatul Kursi) | ms 5–8 | SUGHRA + KUBRA | Yes (3 verses) |
-| 4 | 40 | Al-Baqarah: 284–286 | ms 9 | SUGHRA + KUBRA | Yes (3 verses) |
+| 3 | 30 | Al-Baqarah: 255 (Ayatul Kursi) | ms 5 | SUGHRA + KUBRA | No |
+| 45 | 31 | Al-Baqarah: 256 | ms 7 | SUGHRA + KUBRA | No |
+| 46 | 32 | Al-Baqarah: 257 | ms 8 | SUGHRA + KUBRA | No |
+| 4 | 40 | Al-Baqarah: 284 | ms 9 | SUGHRA + KUBRA | No |
+| 47 | 41 | Al-Baqarah: 285 | ms 9 | SUGHRA + KUBRA | No |
+| 48 | 42 | Al-Baqarah: 286 | ms 9 | SUGHRA + KUBRA | No |
 | 5 | 50 | Ali Imran: 1–2 | ms 9 (bawah) | KUBRA only | Yes (2 verses) |
-| 6 | 60 | At-Tawbah: 129 | ms 11 | KUBRA only | No (single verse) |
-| 7 | 70 | Al-Hashr: 22–24 | ms 11–14 | KUBRA only | Yes (3 verses) |
-| 8 | 80 | Ar-Rum: 20–27 | ms 15–16 | KUBRA only | Yes (8 verses) |
-| 9 | 90 | Al-Mu'minun: 115–118 | ms 17–18 | KUBRA only | Yes (4 verses) |
+| 49 | 55 | Taha: 111–112 | ms 10 | KUBRA only | Yes (2 verses) |
+| 6 | 60 | At-Tawbah: 129 (x7) | ms 11 | KUBRA only | No (single verse) |
+| 50 | 65 | Al-Isra': 110–111 | ms 11–12 | KUBRA only | Yes (2 verses) |
+| 9 | 70 | Al-Mu'minun: 115–118 | ms 13–14 | KUBRA only | Yes (4 verses) |
+| 8 | 80 | Ar-Rum: 17–26 | ms 13–16 | KUBRA only | Yes (10 verses) |
+| 51 | 85 | Al-Mukmin (Ghafir): 1–3 | ms 17 | KUBRA only | Yes (3 verses) |
+| 7 | 87 | Al-Hashr: 22–24 | ms 17–18 | KUBRA only | Yes (3 verses) |
+| 52 | 89 | Az-Zalzalah: 1–8 | ms 19 | KUBRA only | Yes (8 verses) |
 | 10 | 100 | Al-Kafirun | ms 19 | KUBRA only | Yes (6 verses) |
 | 11 | 110 | An-Nasr | ms 21 | KUBRA only | Yes (3 verses) |
 | 12 | 120 | Al-Ikhlas (x3) | ms 21 | SUGHRA + KUBRA | No |

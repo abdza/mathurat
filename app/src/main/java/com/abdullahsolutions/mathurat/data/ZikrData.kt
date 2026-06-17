@@ -205,6 +205,36 @@ object ZikrData {
             )
         ),
 
+        // ms 10 — Taha 111–112
+        ZikrItem(
+            id = 49, sortOrder = 55,
+            title = "Taha: 111–112",
+            titleMs = "Taha ayat 111–112",
+            titleEn = "Taha: 111–112",
+            subtitleEn = "Taha verses 111–112",
+            arabic = "وَعَنَتِ الْوُجُوهُ لِلْحَيِّ الْقَيُّومِ وَقَدْ خَابَ مَنْ حَمَلَ ظُلْمًا ۝ وَمَن يَعْمَلْ مِنَ الصَّالِحَاتِ وَهُوَ مُؤْمِنٌ فَلَا يَخَافُ ظُلْمًا وَلَا هَضْمًا",
+            transliteration = "Wa 'anatil-wujuhu lil-hayyil-qayyumi wa qad khaba man hamala zulma. Wa man ya'mal minas-salihati wa huwa mu'minun fala yakhafu zulman wa la hadma.",
+            translation = "Dan tunduklah semua muka kepada Tuhan Yang Hidup Kekal lagi terus-menerus mengurus makhluk-Nya. Dan sesungguhnya telah rugilah orang yang melakukan kezaliman. Dan barangsiapa mengerjakan amal-amal saleh sedang ia beriman, maka ia tidak khuatir akan diperlakukan tidak adil dan tidak pula akan dikurangi haknya.",
+            translationEn = "And all faces will be humbled before the Ever-Living, the Sustainer of existence. And he will have failed who carries injustice. But he who does righteous deeds while he is a believer — he will neither fear injustice nor deprivation.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "وَعَنَتِ الْوُجُوهُ لِلْحَيِّ الْقَيُّومِ وَقَدْ خَابَ مَنْ حَمَلَ ظُلْمًا",
+                    transliteration = "Wa 'anatil-wujuhu lil-hayyil-qayyumi wa qad khaba man hamala zulma.",
+                    translationMs = "Dan tunduklah semua muka kepada Tuhan Yang Hidup Kekal lagi terus-menerus mengurus makhluk-Nya. Dan sesungguhnya telah rugilah orang yang melakukan kezaliman.",
+                    translationEn = "And all faces will be humbled before the Ever-Living, the Sustainer of existence. And he will have failed who carries injustice."
+                ),
+                VerseEntry(
+                    arabic = "وَمَن يَعْمَلْ مِنَ الصَّالِحَاتِ وَهُوَ مُؤْمِنٌ فَلَا يَخَافُ ظُلْمًا وَلَا هَضْمًا",
+                    transliteration = "Wa man ya'mal minas-salihati wa huwa mu'minun fala yakhafu zulman wa la hadma.",
+                    translationMs = "Dan barangsiapa mengerjakan amal-amal saleh sedang ia beriman, maka ia tidak khuatir akan diperlakukan tidak adil dan tidak pula akan dikurangi haknya.",
+                    translationEn = "But he who does righteous deeds while he is a believer — he will neither fear injustice nor deprivation."
+                )
+            )
+        ),
+
         // ms 11 — At-Tawbah 129
         ZikrItem(
             id = 6, sortOrder = 60,
@@ -216,14 +246,81 @@ object ZikrData {
             transliteration = "Fa-in tawallaw faqul hasbiyallahu la ilaha illa huw, 'alayhi tawakkaltu wa huwa rabbul-'arshil-'azim.",
             translation = "Jika mereka berpaling, maka katakanlah: 'Cukuplah Allah bagiku; tidak ada Tuhan selain Dia. Hanya kepada-Nyalah aku bertawakkal; dan Dia adalah Tuhan yang memiliki Arsy yang agung.'",
             translationEn = "But if they turn away, say: Sufficient for me is Allah; there is no deity except Him. On Him I have relied, and He is the Lord of the Great Throne.",
-            targetCount = 1,
+            targetCount = 7,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.KUBRA)
         ),
 
-        // ms 11–14 — Al-Hashr 22–24
+        // ms 11–12 — Al-Isra' 110–111
         ZikrItem(
-            id = 7, sortOrder = 70,
+            id = 50, sortOrder = 65,
+            title = "Al-Isra': 110–111",
+            titleMs = "Al-Isra' ayat 110–111",
+            titleEn = "Al-Isra': 110–111",
+            subtitleEn = "Al-Isra' verses 110–111",
+            arabic = "قُلِ ادْعُوا اللَّهَ أَوِ ادْعُوا الرَّحْمَٰنَ أَيًّا مَّا تَدْعُوا فَلَهُ الْأَسْمَاءُ الْحُسْنَىٰ وَلَا تَجْهَرْ بِصَلَاتِكَ وَلَا تُخَافِتْ بِهَا وَابْتَغِ بَيْنَ ذَٰلِكَ سَبِيلًا ۝ وَقُلِ الْحَمْدُ لِلَّهِ الَّذِي لَمْ يَتَّخِذْ وَلَدًا وَلَمْ يَكُن لَّهُ شَرِيكٌ فِي الْمُلْكِ وَلَمْ يَكُن لَّهُ وَلِيٌّ مِّنَ الذُّلِّ وَكَبِّرْهُ تَكْبِيرًا",
+            transliteration = "Qulid-'ullaha awid-'ur-rahman, ayyan ma tad'u falahul-asma'ul-husna, wa la tajhar bisalatika wa la tukhafit biha wabtaghi bayna dhalika sabila. Wa qulil-hamdu lillahil-ladhi lam yattakhidh waladan wa lam yakul lahu sharikun fil-mulki wa lam yakul lahu waliyyun minadh-dhulli wa kabbirhu takbira.",
+            translation = "Katakanlah: Serulah Allah atau serulah Ar-Rahman. Dengan nama yang mana saja kamu seru, Dia mempunyai Al-Asma'ul Husna (nama-nama yang terbaik). Dan janganlah kamu mengeraskan suaramu dalam solatmu dan janganlah pula merendahkannya, dan carilah jalan tengah di antara kedua itu. Dan katakanlah: Segala puji bagi Allah yang tidak mempunyai anak dan tidak mempunyai sekutu dalam kerajaan-Nya dan tidak mempunyai penolong dari kehinaan. Dan agungkanlah Dia dengan pengagungan yang sebesar-besarnya.",
+            translationEn = "Say: Call upon Allah or call upon the Most Merciful. Whichever name you call — to Him belong the best names. And do not recite your prayer aloud, nor silently, but seek a way between. And say: All praise is due to Allah, who has not taken a son and has had no partner in His dominion and has no need of a protector out of weakness. And glorify Him with great glorification.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "قُلِ ادْعُوا اللَّهَ أَوِ ادْعُوا الرَّحْمَٰنَ أَيًّا مَّا تَدْعُوا فَلَهُ الْأَسْمَاءُ الْحُسْنَىٰ وَلَا تَجْهَرْ بِصَلَاتِكَ وَلَا تُخَافِتْ بِهَا وَابْتَغِ بَيْنَ ذَٰلِكَ سَبِيلًا",
+                    transliteration = "Qulid-'ullaha awid-'ur-rahman, ayyan ma tad'u falahul-asma'ul-husna, wa la tajhar bisalatika wa la tukhafit biha wabtaghi bayna dhalika sabila.",
+                    translationMs = "Katakanlah: Serulah Allah atau serulah Ar-Rahman. Dengan nama yang mana saja kamu seru, Dia mempunyai Al-Asma'ul Husna (nama-nama yang terbaik). Dan janganlah kamu mengeraskan suaramu dalam solatmu dan janganlah pula merendahkannya, dan carilah jalan tengah di antara kedua itu.",
+                    translationEn = "Say: Call upon Allah or call upon the Most Merciful. Whichever name you call — to Him belong the best names. And do not recite your prayer aloud, nor silently, but seek a way between."
+                ),
+                VerseEntry(
+                    arabic = "وَقُلِ الْحَمْدُ لِلَّهِ الَّذِي لَمْ يَتَّخِذْ وَلَدًا وَلَمْ يَكُن لَّهُ شَرِيكٌ فِي الْمُلْكِ وَلَمْ يَكُن لَّهُ وَلِيٌّ مِّنَ الذُّلِّ وَكَبِّرْهُ تَكْبِيرًا",
+                    transliteration = "Wa qulil-hamdu lillahil-ladhi lam yattakhidh waladan wa lam yakul lahu sharikun fil-mulki wa lam yakul lahu waliyyun minadh-dhulli wa kabbirhu takbira.",
+                    translationMs = "Dan katakanlah: Segala puji bagi Allah yang tidak mempunyai anak dan tidak mempunyai sekutu dalam kerajaan-Nya dan tidak mempunyai penolong dari kehinaan. Dan agungkanlah Dia dengan pengagungan yang sebesar-besarnya.",
+                    translationEn = "And say: All praise is due to Allah, who has not taken a son and has had no partner in His dominion and has no need of a protector out of weakness. And glorify Him with great glorification."
+                )
+            )
+        ),
+
+        // ms 17 — Al-Mukmin (Ghafir) 1–3
+        ZikrItem(
+            id = 51, sortOrder = 85,
+            title = "Al-Mukmin: 1–3",
+            titleMs = "Al-Mukmin (Ghafir) ayat 1–3",
+            titleEn = "Al-Mukmin: 1–3",
+            subtitleEn = "Al-Mukmin (Ghafir) verses 1–3",
+            arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\n\nحم ۝ تَنزِيلُ الْكِتَابِ مِنَ اللَّهِ الْعَزِيزِ الْعَلِيمِ ۝ غَافِرِ الذَّنبِ وَقَابِلِ التَّوْبِ شَدِيدِ الْعِقَابِ ذِي الطَّوْلِ لَا إِلَٰهَ إِلَّا هُوَ إِلَيْهِ الْمَصِيرُ",
+            transliteration = "Ha Mim. Tanzilul-kitabi minallahil-'azizil-'alim. Ghafiridh-dhanbi wa qabilit-tawbi shadidil-'iqabi dhit-tawl, la ilaha illa huw, ilayhil-masir.",
+            translation = "Ha Mim. Diturunkan Kitab ini (Al-Quran) dari Allah Yang Maha Perkasa lagi Maha Mengetahui. Yang mengampuni dosa dan menerima taubat lagi keras hukuman-Nya; Yang mempunyai kurnia. Tiada Tuhan selain Dia. Hanya kepada-Nyalah kembali semua makhluk.",
+            translationEn = "Ha Mim. The revelation of the Book is from Allah, the Exalted in Might, the Knowing. The forgiver of sin, acceptor of repentance, severe in punishment, owner of abundance. There is no deity except Him; to Him is the destination.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "حم",
+                    transliteration = "Ha Mim.",
+                    translationMs = "Ha Mim.",
+                    translationEn = "Ha Mim."
+                ),
+                VerseEntry(
+                    arabic = "تَنزِيلُ الْكِتَابِ مِنَ اللَّهِ الْعَزِيزِ الْعَلِيمِ",
+                    transliteration = "Tanzilul-kitabi minallahil-'azizil-'alim.",
+                    translationMs = "Diturunkan Kitab ini (Al-Quran) dari Allah Yang Maha Perkasa lagi Maha Mengetahui.",
+                    translationEn = "The revelation of the Book is from Allah, the Exalted in Might, the Knowing."
+                ),
+                VerseEntry(
+                    arabic = "غَافِرِ الذَّنبِ وَقَابِلِ التَّوْبِ شَدِيدِ الْعِقَابِ ذِي الطَّوْلِ لَا إِلَٰهَ إِلَّا هُوَ إِلَيْهِ الْمَصِيرُ",
+                    transliteration = "Ghafiridh-dhanbi wa qabilit-tawbi shadidil-'iqabi dhit-tawl, la ilaha illa huw, ilayhil-masir.",
+                    translationMs = "Yang mengampuni dosa dan menerima taubat lagi keras hukuman-Nya; Yang mempunyai kurnia. Tiada Tuhan selain Dia. Hanya kepada-Nyalah kembali semua makhluk.",
+                    translationEn = "The forgiver of sin, acceptor of repentance, severe in punishment, owner of abundance. There is no deity except Him; to Him is the destination."
+                )
+            )
+        ),
+
+        // ms 17–18 — Al-Hashr 22–24
+        ZikrItem(
+            id = 7, sortOrder = 87,
             title = "Al-Hashr: 22–24",
             titleMs = "Al-Hashr ayat 22–24",
             titleEn = "Al-Hashr: 22–24",
@@ -257,21 +354,36 @@ object ZikrData {
             )
         ),
 
-        // ms 15–16 — Ar-Rum 20–27
+        // ms 13–16 — Ar-Rum 17–26
         ZikrItem(
             id = 8, sortOrder = 80,
-            title = "Ar-Rum: 20–27",
-            titleMs = "Ar-Rum ayat 20–27",
-            titleEn = "Ar-Rum: 20–27",
-            subtitleEn = "Ar-Rum verses 20–27",
-            arabic = "وَمِنْ آيَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ ۝ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ۝ وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّلْعَالِمِينَ ۝ وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ ۝ وَمِنْ آيَاتِهِ يُرِيكُمُ الْبَرْقَ خَوْفًا وَطَمَعًا وَيُنَزِّلُ مِنَ السَّمَاءِ مَاءً فَيُحْيِي بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ ۝ وَمِنْ آيَاتِهِ أَن تَقُومَ السَّمَاءُ وَالْأَرْضُ بِأَمْرِهِ ثُمَّ إِذَا دَعَاكُمْ دَعْوَةً مِّنَ الْأَرْضِ إِذَا أَنتُمْ تَخْرُجُونَ ۝ وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ كُلٌّ لَّهُ قَانِتُونَ ۝ وَهُوَ الَّذِي يَبْدَأُ الْخَلْقَ ثُمَّ يُعِيدُهُ وَهُوَ أَهْوَنُ عَلَيْهِ وَلَهُ الْمَثَلُ الْأَعْلَىٰ فِي السَّمَاوَاتِ وَالْأَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
-            transliteration = "Wa min ayatihi an khalaqa kum min turab...",
-            translation = "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan kamu dari tanah. Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya. Dan di antara tanda-tanda kekuasaan-Nya ialah penciptaan langit dan bumi dan berlain-lainan bahasamu dan warna kulitmu. Dan di antara tanda-tanda kekuasaan-Nya ialah tidurmu di waktu malam dan siang hari. Dan di antara tanda-tanda kekuasaan-Nya, Dia memperlihatkan kilat untuk menimbulkan ketakutan dan harapan.",
-            translationEn = "And of His signs is that He created you from dust; then, suddenly you were human beings dispersing. And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colours. And of His signs is your sleep by night and day and your seeking of His bounty. And of His signs is that He shows you the lightning. And of His signs is that the heaven and earth stand by His command. To Him belongs whoever is in the heavens and earth. All are devoutly obedient to Him.",
+            title = "Ar-Rum: 17–26",
+            titleMs = "Ar-Rum ayat 17–26",
+            titleEn = "Ar-Rum: 17–26",
+            subtitleEn = "Ar-Rum verses 17–26",
+            arabic = "فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ ۝ وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ ۝ يُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَيُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَيُحْيِي الْأَرْضَ بَعْدَ مَوْتِهَا وَكَذَٰلِكَ تُخْرَجُونَ ۝ وَمِنْ آيَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ ۝ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ۝ وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّلْعَالِمِينَ ۝ وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ ۝ وَمِنْ آيَاتِهِ يُرِيكُمُ الْبَرْقَ خَوْفًا وَطَمَعًا وَيُنَزِّلُ مِنَ السَّمَاءِ مَاءً فَيُحْيِي بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَعْقِلُونَ ۝ وَمِنْ آيَاتِهِ أَن تَقُومَ السَّمَاءُ وَالْأَرْضُ بِأَمْرِهِ ثُمَّ إِذَا دَعَاكُمْ دَعْوَةً مِّنَ الْأَرْضِ إِذَا أَنتُمْ تَخْرُجُونَ ۝ وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ كُلٌّ لَّهُ قَانِتُونَ",
+            transliteration = "Fasubhanallahi hina tumsuna wa hina tusbihun. Wa lahul-hamdu fis-samawati wal-ardhi wa 'ashiyyan wa hina tuzhirun. Yukhrijul-hayya minal-mayyiti wa yukhrijul-mayyita minal-hayyi wa yuhyil-ardha ba'da mawtiha wa kadhalika tukhrajun. Wa min ayatihi an khalaqakum min turabin thumma idha antum basharun tantashirun...",
+            translation = "Maka bertasbihlah kepada Allah di waktu kamu berada di petang hari dan waktu kamu berada di waktu subuh. Dan bagi-Nyalah segala puji di langit dan di bumi, dan di waktu kamu berada pada petang hari dan di waktu kamu berada di waktu zohor. Dia mengeluarkan yang hidup dari yang mati dan mengeluarkan yang mati dari yang hidup dan menghidupkan bumi sesudah matinya. Dan seperti itulah kamu akan dikeluarkan dari kubur. Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan kamu dari tanah. Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri. Dan di antara tanda-tanda kekuasaan-Nya ialah penciptaan langit dan bumi dan berlain-lainan bahasamu dan warna kulitmu. Dan di antara tanda-tanda kekuasaan-Nya ialah tidurmu di waktu malam dan siang hari. Dan di antara tanda-tanda kekuasaan-Nya, Dia memperlihatkan kilat untuk menimbulkan ketakutan dan harapan. Dan di antara tanda-tanda kekuasaan-Nya ialah berdirinya langit dan bumi dengan iradat-Nya. Dan kepunyaan-Nyalah siapa saja yang ada di langit dan di bumi. Semuanya hanya kepada-Nya tunduk.",
+            translationEn = "So exalted is Allah when you reach the evening and when you reach the morning. And to Him is all praise throughout the heavens and the earth, and at night and when you are at noon. He brings the living out of the dead and brings the dead out of the living, and He brings to life the earth after its lifelessness. And thus will you be brought out. And of His signs is that He created you from dust; then, suddenly you were human beings dispersing. And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colours. And of His signs is your sleep by night and day and your seeking of His bounty. And of His signs is that He shows you the lightning, causing fear and aspiration. And of His signs is that the heaven and earth stand by His command. And to Him belongs whoever is in the heavens and earth. All are devoutly obedient to Him.",
             targetCount = 1,
             sessions = setOf(Session.MORNING, Session.EVENING),
             versions = setOf(Version.KUBRA),
             pairedVerses = listOf(
+                VerseEntry(
+                    arabic = "فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ",
+                    translationMs = "Maka bertasbihlah kepada Allah di waktu kamu berada di petang hari dan waktu kamu berada di waktu subuh.",
+                    translationEn = "So exalted is Allah when you reach the evening and when you reach the morning."
+                ),
+                VerseEntry(
+                    arabic = "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ",
+                    translationMs = "Dan bagi-Nyalah segala puji di langit dan di bumi, dan di waktu kamu berada pada petang hari dan di waktu kamu berada di waktu zohor.",
+                    translationEn = "And to Him is all praise throughout the heavens and the earth, and at night and when you are at noon."
+                ),
+                VerseEntry(
+                    arabic = "يُخْرِجُ الْحَيَّ مِنَ الْمَيِّتِ وَيُخْرِجُ الْمَيِّتَ مِنَ الْحَيِّ وَيُحْيِي الْأَرْضَ بَعْدَ مَوْتِهَا وَكَذَٰلِكَ تُخْرَجُونَ",
+                    translationMs = "Dia mengeluarkan yang hidup dari yang mati dan mengeluarkan yang mati dari yang hidup dan menghidupkan bumi sesudah matinya. Dan seperti itulah kamu akan dikeluarkan dari kubur.",
+                    translationEn = "He brings the living out of the dead and brings the dead out of the living, and He brings to life the earth after its lifelessness. And thus will you be brought out."
+                ),
                 VerseEntry(
                     arabic = "وَمِنْ آيَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ",
                     translationMs = "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan kamu dari tanah. Kemudian tiba-tiba kamu menjadi manusia yang bertebaran.",
@@ -306,18 +418,13 @@ object ZikrData {
                     arabic = "وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ كُلٌّ لَّهُ قَانِتُونَ",
                     translationMs = "Dan kepunyaan-Nyalah siapa saja yang ada di langit dan di bumi. Semuanya hanya kepada-Nya tunduk.",
                     translationEn = "And to Him belongs whoever is in the heavens and earth. All are devoutly obedient to Him."
-                ),
-                VerseEntry(
-                    arabic = "وَهُوَ الَّذِي يَبْدَأُ الْخَلْقَ ثُمَّ يُعِيدُهُ وَهُوَ أَهْوَنُ عَلَيْهِ وَلَهُ الْمَثَلُ الْأَعْلَىٰ فِي السَّمَاوَاتِ وَالْأَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
-                    translationMs = "Dan Dialah yang menciptakan makhluk dari permulaannya, kemudian mengembalikannya; dan menghidupkan kembali itu adalah lebih mudah bagi-Nya. Dan bagi-Nyalah sifat yang Maha Tinggi di langit dan di bumi; dan Dialah Yang Maha Perkasa lagi Maha Bijaksana.",
-                    translationEn = "And it is He who begins creation; then He repeats it, and that is even easier for Him. To Him belongs the highest attribute in the heavens and earth. And He is the Exalted in Might, the Wise."
                 )
             )
         ),
 
         // ms 17–18 — Al-Mu'minun 115–118
         ZikrItem(
-            id = 9, sortOrder = 90,
+            id = 9, sortOrder = 70,
             title = "Al-Mu'minun: 115–118",
             titleMs = "Al-Mu'minun ayat 115–118",
             titleEn = "Al-Mu'minun: 115–118",
@@ -353,6 +460,73 @@ object ZikrData {
                     transliteration = "Wa qur-rabbi ghfir warham wa anta khayrul-rahimin.",
                     translationMs = "Dan katakanlah: Ya Tuhanku, berilah ampun dan berilah rahmat, dan Engkau adalah Pemberi rahmat yang paling baik.",
                     translationEn = "And say: My Lord, forgive and have mercy, and You are the best of the merciful."
+                )
+            )
+        ),
+
+        // ms 19 — Az-Zalzalah 1–8
+        ZikrItem(
+            id = 52, sortOrder = 89,
+            title = "Az-Zalzalah",
+            titleMs = "Surah Az-Zalzalah",
+            titleEn = "Az-Zalzalah",
+            subtitleEn = "Surah Az-Zalzalah",
+            arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\n\nإِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا ۝ وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا ۝ وَقَالَ الْإِنسَانُ مَا لَهَا ۝ يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا ۝ بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا ۝ يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِّيُرَوْا أَعْمَالَهُمْ ۝ فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ ۝ وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ",
+            transliteration = "Idha zulzilatil-ardhu zilzalaha. Wa akhrajatil-ardhu athqalaha. Wa qalal-insanu ma laha. Yawma'idhin tuhaddithu akhbaraha. Bi-anna rabbaka awha laha. Yawma'idhin yasdurun-nasu ashtatal liyuraw a'malahum. Faman ya'mal mithqala dharratin khayran yarah. Wa man ya'mal mithqala dharratin sharran yarah.",
+            translation = "Apabila bumi digoncangkan dengan goncangan yang dahsyat, dan bumi telah mengeluarkan beban-beban berat yang dikandungnya, dan manusia bertanya: 'Mengapa bumi jadi begini?', pada hari itu bumi menceritakan beritanya. Kerana sesungguhnya Tuhanmu telah memerintahkan yang sedemikian itu kepadanya. Pada hari itu manusia keluar dari kuburnya bermacam-macam, supaya diperlihatkan kepada mereka balasan pekerjaan mereka. Barangsiapa yang mengerjakan kebaikan seberat zarah pun, nescaya dia akan melihat balasannya pula. Dan barangsiapa yang mengerjakan kejahatan seberat zarah pun, nescaya dia akan melihat balasannya pula.",
+            translationEn = "When the earth is shaken with its earthquake, and the earth discharges its burdens, and man says: 'What is wrong with it?' — that Day, it will report its news, because your Lord has commanded it. That Day, the people will depart separated to be shown the result of their deeds. So whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it.",
+            targetCount = 1,
+            sessions = setOf(Session.MORNING, Session.EVENING),
+            versions = setOf(Version.KUBRA),
+            pairedVerses = listOf(
+                VerseEntry(arabic = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"),
+                VerseEntry(
+                    arabic = "إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا",
+                    transliteration = "Idha zulzilatil-ardhu zilzalaha.",
+                    translationMs = "Apabila bumi digoncangkan dengan goncangan yang dahsyat,",
+                    translationEn = "When the earth is shaken with its earthquake,"
+                ),
+                VerseEntry(
+                    arabic = "وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا",
+                    transliteration = "Wa akhrajatil-ardhu athqalaha.",
+                    translationMs = "Dan bumi telah mengeluarkan beban-beban berat yang dikandungnya,",
+                    translationEn = "And the earth discharges its burdens,"
+                ),
+                VerseEntry(
+                    arabic = "وَقَالَ الْإِنسَانُ مَا لَهَا",
+                    transliteration = "Wa qalal-insanu ma laha.",
+                    translationMs = "Dan manusia bertanya: 'Mengapa bumi jadi begini?'",
+                    translationEn = "And man says: 'What is wrong with it?'"
+                ),
+                VerseEntry(
+                    arabic = "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا",
+                    transliteration = "Yawma'idhin tuhaddithu akhbaraha.",
+                    translationMs = "Pada hari itu bumi menceritakan beritanya.",
+                    translationEn = "That Day, it will report its news,"
+                ),
+                VerseEntry(
+                    arabic = "بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا",
+                    transliteration = "Bi-anna rabbaka awha laha.",
+                    translationMs = "Kerana sesungguhnya Tuhanmu telah memerintahkan yang sedemikian itu kepadanya.",
+                    translationEn = "Because your Lord has commanded it."
+                ),
+                VerseEntry(
+                    arabic = "يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِّيُرَوْا أَعْمَالَهُمْ",
+                    transliteration = "Yawma'idhin yasdurun-nasu ashtatal liyuraw a'malahum.",
+                    translationMs = "Pada hari itu manusia keluar dari kuburnya bermacam-macam, supaya diperlihatkan kepada mereka balasan pekerjaan mereka.",
+                    translationEn = "That Day, the people will depart separated to be shown the result of their deeds."
+                ),
+                VerseEntry(
+                    arabic = "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",
+                    transliteration = "Faman ya'mal mithqala dharratin khayran yarah.",
+                    translationMs = "Barangsiapa yang mengerjakan kebaikan seberat zarah pun, nescaya dia akan melihat balasannya.",
+                    translationEn = "So whoever does an atom's weight of good will see it."
+                ),
+                VerseEntry(
+                    arabic = "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ",
+                    transliteration = "Wa man ya'mal mithqala dharratin sharran yarah.",
+                    translationMs = "Dan barangsiapa yang mengerjakan kejahatan seberat zarah pun, nescaya dia akan melihat balasannya pula.",
+                    translationEn = "And whoever does an atom's weight of evil will see it."
                 )
             )
         ),
