@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'com.abdullahsolutions.mathurat'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.abdullahsolutions.mathurat"
         minSdk 24
-        targetSdk 35
-        versionCode 6
-        versionName "1.5"
+        targetSdk 36
+        versionCode 7
+        versionName "1.6"
     }
 
     def keystorePropertiesFile = rootProject.file("keystore.properties")
