@@ -18,6 +18,16 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_prayer_times"
+        android:title="Waktu Solat"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_qibla"
+        android:title="Arah Kiblat"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_reference"
         android:title="Rujukan"
         app:showAsAction="never" />

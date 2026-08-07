@@ -22,6 +22,20 @@
         <item name="android:paddingVertical">4dp</item>
     </style>
 
+    <!-- One time in the widget's day table; the active one gets a pill background at runtime -->
+    <style name="WidgetTimeCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingVertical">3dp</item>
+        <item name="android:paddingHorizontal">2dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">13sp</item>
         <item name="textAllCaps">false</item>

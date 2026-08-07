@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Compact 4x1 prayer times widget: the whole day as a row of times, with the prayer being
+  counted down to highlighted. The countdown is a Chronometer so it ticks locally without
+  needing remote updates.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/widget_background"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="8dp">
+
+    <ImageView
+        android:id="@+id/widgetDome"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_mosque_dome"
+        android:contentDescription="@string/widget_prayer_label" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/widgetZone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_prayer_label"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/text_secondary" />
+
+        <!-- The day: Subuh, Zohor, Asar, Maghrib, Isyak -->
+        <LinearLayout
+            android:id="@+id/widgetTimesRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/widgetTime0"
+                style="@style/WidgetTimeCell"
+                android:text="—" />
+
+            <TextView
+                android:id="@+id/widgetTime1"
+                style="@style/WidgetTimeCell"
+                android:text="—" />
+
+            <TextView
+                android:id="@+id/widgetTime2"
+                style="@style/WidgetTimeCell"
+                android:text="—" />
+
+            <TextView
+                android:id="@+id/widgetTime3"
+                style="@style/WidgetTimeCell"
+                android:text="—" />
+
+            <TextView
+                android:id="@+id/widgetTime4"
+                style="@style/WidgetTimeCell"
+                android:text="—" />
+
+        </LinearLayout>
+
+        <!-- Shown instead of the table when nothing is cached -->
+        <TextView
+            android:id="@+id/widgetMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:textColor="@color/text_secondary"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

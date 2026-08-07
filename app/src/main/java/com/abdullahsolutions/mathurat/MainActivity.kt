@@ -204,6 +204,8 @@ class MainActivity : AppCompatActivity() {
         menu.findItem(R.id.action_calendar)?.title = if (en) "Calendar" else "Kalendar"
         menu.findItem(R.id.action_achievements)?.title = if (en) "Achievements" else "Pencapaian"
         menu.findItem(R.id.action_counter)?.title = if (en) "Zikir Counter" else "Kaunter Zikir"
+        menu.findItem(R.id.action_prayer_times)?.title = if (en) "Prayer Times" else "Waktu Solat"
+        menu.findItem(R.id.action_qibla)?.title = if (en) "Qibla Direction" else "Arah Kiblat"
         menu.findItem(R.id.action_reference)?.title = if (en) "Reference" else "Rujukan"
         menu.findItem(R.id.action_settings)?.title = if (en) "Settings" else "Tetapan"
         menu.findItem(R.id.action_reset_all)?.title = if (en) "Reset All Counters" else "Set Semula Semua Kiraan"
@@ -221,6 +223,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_counter -> {
                 startActivity(Intent(this, ZikrCounterActivity::class.java))
+                true
+            }
+            R.id.action_prayer_times -> {
+                startActivity(Intent(this, PrayerTimesActivity::class.java))
+                true
+            }
+            R.id.action_qibla -> {
+                startActivity(Intent(this, QiblaActivity::class.java))
                 true
             }
             R.id.action_reference -> {

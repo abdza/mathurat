@@ -42,6 +42,19 @@ All content is **hardcoded in Kotlin** — no database, no JSON files, no extern
 | `adapter/ReferenceCategoryAdapter.kt` | Adapter for reference list |
 | `adapter/ReferenceAdapter.kt` | Adapter for reference detail entries |
 | `ZikrCounterActivity.kt` | Standalone tap counter with flash + sound |
+| `QiblaActivity.kt` | Qibla finder: compass sensors + location → bearing to the Kaaba |
+| `view/QiblaCompassView.kt` | Custom-drawn compass dial with Kaaba needle |
+| `PrayerTimesActivity.kt` | Prayer times screen: next-prayer countdown, zone picker, reminders |
+| `data/PrayerTimeRepository.kt` | JAKIM e-solat fetch + year-long disk cache |
+| `data/PrayerZones.kt` | All 60 JAKIM zones + nearest-zone lookup |
+| `model/PrayerDay.kt` | One day of prayer times |
+| `notification/PrayerAlarmScheduler.kt` | Queues the next few prayer alarms |
+| `notification/PrayerAlarmReceiver.kt` | Fires at a prayer time → notify + re-queue |
+| `notification/PrayerBootReceiver.kt` | Re-queues after reboot / clock change / update |
+| `notification/PrayerNotifier.kt` | Notification channel + posting |
+| `notification/PrayerNotificationSettings.kt` | Reminder on/off + per-prayer toggles |
+| `widget/PrayerTimesWidget.kt` | Home screen prayer times widget |
+| `widget/ZikrCounterWidget.kt` | Home screen tap-to-count zikir widget |
 
 ---
 
@@ -228,6 +241,15 @@ App auto-selects Morning tab if launched between 4am–11am, Evening otherwise.
   - `arabic_font_size` (Float, default 28f, range 16–~60sp)
 - **`mathurat_zikr_counter`** SharedPreferences — stores:
   - `count` (Int, default 0) — standalone Zikir Counter value, persists across app restarts
+- **`mathurat_qibla`** SharedPreferences — stores the last known location for the Qibla finder:
+  - `lat` / `lon` (Float) and `time` (Long) — lets the compass work without a fresh GPS fix
+- **`mathurat_prayer`** SharedPreferences — prayer times + reminders:
+  - `zone` (String) — selected JAKIM zone code
+  - `notify_enabled` (Boolean, default false) — master reminder toggle
+  - `notify_<prayer>` (Boolean, default true) — per-prayer toggle (`fajr`, `dhuhr`, `asr`,
+    `maghrib`, `isha`)
+- **`filesDir/prayer_<ZONE>_<YEAR>.json`** — cached year of prayer times (not SharedPreferences,
+  the payload is ~77 KB)
 
 ---
 
@@ -267,11 +289,221 @@ Standalone tap counter accessible from the main menu (⋮ → Kaunter Zikir / Zi
 
 ---
 
+## Prayer Times (PrayerTimesActivity)
+
+Waktu solat from JAKIM, in the main menu (⋮ → Waktu Solat / Prayer Times).
+
+### The API
+
+JAKIM's e-solat site has an undocumented JSON endpoint behind the public page:
+
+```
+https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&period=year&zone=SGR01
+```
+
+`period` accepts `today`, `week`, `month`, `year`. **`year` returns all 365 days in a single
+~77 KB response**, and is what the app uses. (`period=duration` with `datestart`/`dateend`
+returns HTTP 500 — don't bother.) The API always serves the *current* calendar year; the year
+cannot be requested explicitly, so next year's table cannot be pre-fetched.
+
+Response shape (times are Malaysia time, `HH:mm:ss`):
+
+```json
+{"prayerTime":[{"hijri":"1448-02-23","date":"07-Ogos-2026","day":"Friday",
+  "imsak":"05:51:00","fajr":"06:01:00","syuruk":"07:11:00","dhuha":"07:36:00",
+  "dhuhr":"13:22:00","asr":"16:41:00","maghrib":"19:29:00","isha":"20:41:00"}],
+ "status":"OK!","zone":"SGR01","bearing":"291&#176; 7&#8242; 23&#8243;"}
+```
+
+Two traps, both covered by tests:
+- `date` uses **Malay** month names: Jan, Feb, **Mac**, Apr, **Mei**, Jun, Jul, **Ogos**, Sep,
+  **Okt**, Nov, **Dis**.
+- For an unknown zone, `status` is `NO_RECORD!` and **`prayerTime` is an object, not an array** —
+  parsing must not assume an array.
+
+### Keeping load off their server
+
+`PrayerTimeRepository` is built to be a good citizen — normally **one request per zone per year**:
+
+- fetches the whole year, never polls per day
+- caches raw JSON in `filesDir/prayer_<ZONE>_<YEAR>.json` (too big for SharedPreferences)
+- serves cache instantly, revalidating in the background only after 90 days (catches the rare
+  mid-year correction) — so ~1–5 requests a year, plus manual refreshes
+- a failed request backs off 5 minutes instead of retrying on every screen open
+- concurrent loads for the same zone/year collapse into one
+- prunes cache files for other zones and past years
+
+### Screen
+
+- Next-prayer card with a live `HH:MM:SS` countdown, rolling over to tomorrow's Subuh after Isyak
+- All 8 rows (Imsak, Subuh, Syuruk, Dhuha, Zohor, Asar, Maghrib, Isyak); only the five obligatory
+  prayers are eligible as "next" — `PrayerDay.Entry.isPrayer` marks them
+- Zone card opens a picker of all 60 zones, plus "Guna lokasi saya" which picks the nearest zone
+  using the location cached by the Qibla screen (`mathurat_qibla` prefs)
+- Times are resolved in `Asia/Kuala_Lumpur` regardless of device timezone, since that is the
+  calendar JAKIM publishes against
+- Selected zone persists in `mathurat_prayer` SharedPreferences (`zone`)
+
+### Zone data
+
+`PrayerZones.all` holds all 60 codes with a representative lat/lon per zone, used **only** to
+suggest a default. `autoMatch = false` on special zones (Gunung Kinabalu, Bukit Larut, Puncak
+Gunung Jerai, Temengor/Belum, Pulau Tioman, Pulau Aur, Cameron/Genting, Kg Patarikan) so they are
+never auto-suggested — a user near Gunung Kinabalu should get SBH07, not SBH06.
+
+### Prayer time reminders (azan notifications)
+
+Toggled from a card on the prayer times screen, with a per-prayer picker (all five on by default).
+
+**Scheduling** — `PrayerAlarmScheduler` queues only the next `MAX_ALARMS` (6) prayers rather
+than a standing daily alarm. Each alarm re-queues the rest when it fires. Because alarms do not
+survive reboots, `PrayerBootReceiver` also re-queues on `BOOT_COMPLETED`, `MY_PACKAGE_REPLACED`,
+`TIME_SET`, `TIMEZONE_CHANGED`, and the exact-alarm permission change broadcast. Everything is
+read from the **on-disk cache**, so reminders keep working with no network.
+
+**Exact alarms** — `SCHEDULE_EXACT_ALARM` is not granted by default from Android 13, so the
+scheduler checks `canScheduleExactAlarms()` and falls back to `setAndAllowWhileIdle` (a few
+minutes of drift) instead of failing. The screen explains this and links to the settings page.
+Deliberately **not** using `USE_EXACT_ALARM` — Play policy restricts it to alarm/calendar apps.
+
+**Notification sound** — the channel is created with the default notification sound; the app
+ships **no azan audio**. To hear a real azan the user points the channel at their own file via
+Android's per-channel notification settings. Note that a channel's settings are fixed once
+created, so changing the in-app default later requires a new channel ID.
+
+**Permissions** — `POST_NOTIFICATIONS` is requested when the toggle is switched on (Android 13+);
+if denied, the toggle flips back rather than pretending to be armed. The screen re-checks
+system-level notification blocking and exact-alarm permission in `onResume`.
+
+**Small icon** — `ic_notification_prayer.xml`, a flat white crescent. Status bar icons are alpha
+masks, so a launcher icon there would render as a white blob.
+
+### Tests
+
+`app/src/test/` holds JVM unit tests (`./gradlew testDebugUnitTest`, 22 tests) run against **real
+captured API responses** in `app/src/test/resources/`:
+
+- `PrayerTimeParsingTest` — Malay month names, the `NO_RECORD!` object-not-array shape,
+  malformed payloads, nearest-zone matching, all 60 zones present
+- `PrayerAlarmSchedulingTest` — `PrayerAlarmScheduler.computeUpcoming()` (the pure, clock-free
+  core): rollover to tomorrow's Subuh after Isyak, a prayer exactly "now" not re-queueing itself
+  (which would loop), per-prayer filtering, running past the end of cached data
+- `WidgetHighlightTest` — `PrayerTimesWidget.currentPrayerKey()`: which cell is pilled through
+  the day, the pre-Subuh fallback to Isyak, and that every minute of the day resolves to a prayer
+
+Both scheduler and widget helpers take the clock as a parameter rather than reading
+`System.currentTimeMillis()` internally — that is what makes the day boundaries testable.
+
+`org.json:json` is a test dependency because the android.jar stub throws "not mocked".
+
+---
+
+## Home Screen Widgets
+
+Two `AppWidgetProvider`s. Both read the same SharedPreferences the in-app screens use, so
+widget and app never disagree.
+
+### Zikir Counter (`widget/ZikrCounterWidget.kt`, 3x2)
+
+Large tap target that counts, small reset beside it.
+
+- Tap and reset are `PendingIntent.getBroadcast` back into the provider itself
+  (`WIDGET_ZIKR_INCREMENT` / `WIDGET_ZIKR_RESET`). **Request codes must be unique per
+  action AND per widget id** or the PendingIntents collide across placed widgets.
+- Shares `mathurat_zikr_counter`'s `count` with `ZikrCounterActivity`. The activity pushes
+  `ZikrCounterWidget.updateAll()` after every tap/reset, and re-reads the count in `onResume`
+  because the widget may have changed it while the activity was backgrounded.
+- Mirrors the in-app milestone vibration at 33 and 100.
+- `updatePeriodMillis="0"` — it only ever redraws in response to a tap.
+- **Reset is immediate, with no confirmation.** That is what was asked for; if accidental
+  taps become a problem, the cheap fix is a two-tap arm ("Ketuk lagi") rather than a dialog,
+  since widgets cannot show dialogs.
+
+### Prayer Times (`widget/PrayerTimesWidget.kt`, 4x1)
+
+Compact 4x1. Mosque mark on the left, zone on top, and the **whole day as a row of five times**
+below. Tap opens `PrayerTimesActivity`. **No countdown** — the widget is a glanceable table.
+
+- **No prayer names in the table.** At 4x1 there is no room, and the order (Subuh, Zohor, Asar,
+  Maghrib, Isyak) is fixed and familiar, so the times alone carry it.
+- The pill marks the prayer **currently in progress** — `currentPrayerKey()`, the last prayer
+  that has already started. Note this is *not* the next prayer: at 10:12 the Subuh cell is lit,
+  not Zohor. Before Subuh it falls back to `isha` (still the previous night's Isyak), so the
+  row is never blank.
+- Highlighting uses `setInt(id, "setBackgroundResource", …)` plus `setTextColor` —
+  RemoteViews has no typeface setter, so a pill reads better than trying to bold text.
+  **Every cell is set explicitly on each render** (`0` clears the background), otherwise the
+  highlight would smear across cells as the day advances.
+- Nothing on the widget ticks, so the refresh alarm is now the *only* thing that moves the
+  pill — it is scheduled at the next prayer time (`nextPrayer()` is still used for exactly
+  this, even though the next prayer is no longer displayed).
+
+- Reads only the on-disk cache — **the widget never hits the network**. With no cache it says
+  "Buka aplikasi sekali untuk memuat turun waktu solat."
+- The countdown is a **`Chronometer` with `setChronometerCountDown(true)`**, so it ticks
+  locally. That is the whole reason the widget does not need frequent remote updates: it only
+  needs one when the *next prayer* changes, so it sets a single inexact alarm at that moment
+  (`WIDGET_PRAYER_REFRESH`). `updatePeriodMillis` of 30 min is only a safety net.
+- Refreshed also from `PrayerAlarmReceiver` (prayer boundary), `PrayerBootReceiver` (reboot
+  loses the alarm), and `PrayerTimesActivity` after a load or zone change.
+- Next prayer ignores the notification per-prayer toggles — the widget shows the schedule,
+  not the reminder settings.
+
+### Gotchas
+
+- Widget layouts may only use RemoteViews-supported views. `Chronometer` is supported;
+  `styles` and custom shape drawables are fine.
+- Previews use `android:previewLayout` (the real layout) rather than a preview PNG asset.
+- **Changing `targetCellWidth/Height` does not resize widgets already on the home screen.**
+  An existing placement keeps its old cell size and just re-renders the new layout inside it;
+  the user has to resize it by hand or remove and re-add.
+
+---
+
+## Mosque Motif (`ic_mosque_dome.xml`)
+
+Flat mosque silhouette — dome, spire, two minarets — drawn as straight lines plus one arc so
+it stays crisp at any size and tints cleanly. Used in two places:
+
+- The prayer times widget, at 28dp in `colorPrimary`.
+- A watermark on the next-prayer card in `PrayerTimesActivity`, at 120dp in white with
+  `alpha="0.13"`, anchored bottom-end with negative margins so it bleeds off the card corner.
+
+Keep it a single flat shape (no strokes, no gradients) — it has to survive being tinted and
+scaled down to a 24dp status-bar-sized mark.
+
+---
+
+## Qibla Finder (QiblaActivity)
+
+Compass pointing to the Kaaba, accessible from the main menu (⋮ → Arah Kiblat / Qibla Direction).
+
+- **Heading** — `TYPE_ROTATION_VECTOR` when available, otherwise `ACCELEROMETER` + `MAGNETIC_FIELD`.
+  Axes are remapped with `SensorManager.remapCoordinateSystem()` for the current display rotation.
+- **True north** — the sensor reports magnetic heading, so `GeomagneticField.declination` is added.
+  This matters because the qibla bearing is computed against true north.
+- **Smoothing** — the heading is low-pass filtered as a sin/cos pair so it wraps correctly across 0°/360°.
+- **Qibla bearing** — great-circle initial bearing to the Kaaba (21.4224779, 39.8251832):
+  `atan2(sin Δλ, cos φ · tan φ_k − sin φ · cos Δλ)`. Distance uses haversine.
+- **Location** — `LocationManager` last-known fix across enabled providers, plus a fresh fix
+  request with a 20s timeout. Coarse/fine permission requested on demand from the screen itself.
+- **Offline** — the last used coordinates are cached in `mathurat_qibla` SharedPreferences,
+  so re-opening the screen works without a new fix.
+- **Alignment** — within 5° (`QiblaCompassView.ALIGN_TOLERANCE`) the needle and pill turn green
+  and the phone vibrates once.
+- **Degraded states** — no compass sensor, permission denied, or location services off each show
+  their own message with an appropriate action button.
+- All labels respect the `show_english` setting; cardinal letters switch between U/T/S/B and N/E/S/W.
+
+---
+
 ## ADB Wireless Debugging
 
-Device connected at `192.168.1.7:39039`.
+The phone pairs over wireless debugging. The IP:port changes every session, so don't hardcode
+it — `adb devices` and use whatever id is listed (currently it attaches by mDNS as
+`adb-R5CY41BPGGT-AgHgYB._adb-tls-connect._tcp`).
 
 ```bash
 ./gradlew assembleDebug
-adb -s 192.168.1.7:39039 install -r app/build/outputs/apk/debug/app-debug.apk
+adb -s "$(adb devices | awk 'NR==2{print $1}')" install -r app/build/outputs/apk/debug/app-debug.apk
 ```

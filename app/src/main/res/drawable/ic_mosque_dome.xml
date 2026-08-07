@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mosque silhouette: two minarets flanking a domed hall with a spire.
+  Drawn as a single flat shape so it tints cleanly wherever it is used.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/colorPrimary">
+
+    <!-- Spire above the dome -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M12,4.2 L12.85,8.6 L11.15,8.6 Z" />
+
+    <!-- Dome -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M6,15 A6,6 0 0,1 18,15 Z" />
+
+    <!-- Prayer hall -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M4.4,15.7 L19.6,15.7 L19.6,20.6 L4.4,20.6 Z" />
+
+    <!-- Left minaret + cap -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M2.1,7.4 L3.1,9.6 L1.1,9.6 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M1.3,10.2 L2.9,10.2 L2.9,20.6 L1.3,20.6 Z" />
+
+    <!-- Right minaret + cap -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M21.9,7.4 L22.9,9.6 L20.9,9.6 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M21.1,10.2 L22.7,10.2 L22.7,20.6 L21.1,20.6 Z" />
+
+</vector>

@@ -14,6 +14,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.abdullahsolutions.mathurat.databinding.ActivityZikrCounterBinding
+import com.abdullahsolutions.mathurat.widget.ZikrCounterWidget
 
 class ZikrCounterActivity : AppCompatActivity() {
 
@@ -66,13 +67,22 @@ class ZikrCounterActivity : AppCompatActivity() {
             flashBackground()
             vibrateForTap(count)
             countPrefs.edit().putInt("count", count).apply()
+            ZikrCounterWidget.updateAll(this)
         }
 
         binding.fabReset.setOnClickListener {
             count = 0
             updateDisplay()
             countPrefs.edit().putInt("count", 0).apply()
+            ZikrCounterWidget.updateAll(this)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // The home screen widget may have changed the count while this screen was away.
+        count = countPrefs.getInt("count", 0)
+        updateDisplay()
     }
 
     private fun updateDisplay() {

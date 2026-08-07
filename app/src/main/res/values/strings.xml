@@ -11,4 +11,11 @@
     <string name="tap_to_count">Ketuk untuk kira</string>
     <string name="long_press_reset">Tahan lama untuk set semula</string>
     <string name="completed">Selesai!</string>
+
+    <!-- Widgets -->
+    <string name="widget_reset">Set Semula</string>
+    <string name="widget_zikr_label">Kaunter Zikir</string>
+    <string name="widget_prayer_label">Waktu Solat</string>
+    <string name="widget_zikr_description">Kaunter zikir — ketuk untuk mengira</string>
+    <string name="widget_prayer_description">Waktu solat dan solat seterusnya</string>
 </resources>

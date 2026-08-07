@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Zikir counter widget: big tap target to count, small reset beside it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/widget_background"
+    android:padding="8dp">
+
+    <!-- Tap anywhere here to count -->
+    <LinearLayout
+        android:id="@+id/widgetTapZone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/widget_tap_bg">
+
+        <TextView
+            android:id="@+id/widgetCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:includeFontPadding="false" />
+
+        <TextView
+            android:id="@+id/widgetHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Ketuk untuk mengira"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:textColor="@color/white_70" />
+
+    </LinearLayout>
+
+    <!-- Reset -->
+    <LinearLayout
+        android:id="@+id/widgetReset"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/widget_reset_bg">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_refresh"
+            android:contentDescription="@string/widget_reset"
+            android:tint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/widgetResetLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/widget_reset"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</LinearLayout>

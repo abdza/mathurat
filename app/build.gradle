@@ -11,8 +11,8 @@ android {
         applicationId "com.abdullahsolutions.mathurat"
         minSdk 24
         targetSdk 36
-        versionCode 7
-        versionName "1.6"
+        versionCode 8
+        versionName "1.7"
     }
 
     def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -58,4 +58,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
+
+    testImplementation 'junit:junit:4.13.2'
+    // Real org.json for JVM unit tests — the android.jar stub throws "not mocked".
+    testImplementation 'org.json:json:20231013'
 }
