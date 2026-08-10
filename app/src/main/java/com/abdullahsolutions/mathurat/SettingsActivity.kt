@@ -6,6 +6,7 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.abdullahsolutions.mathurat.databinding.ActivitySettingsBinding
+import com.abdullahsolutions.mathurat.widget.ZikrCounterWidget
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -28,6 +29,7 @@ class SettingsActivity : AppCompatActivity() {
         setupVibrateClick()
         setupVibrate33()
         setupVibrate100()
+        setupWidgetCountSide()
     }
 
     private fun applyLanguage(en: Boolean) {
@@ -40,6 +42,9 @@ class SettingsActivity : AppCompatActivity() {
         binding.tvLabelVibrateClick.text = if (en) "Vibrate on each tap" else "Getaran setiap ketukan"
         binding.tvLabelVibrate33.text = if (en) "Vibrate at every 33" else "Getaran setiap 33"
         binding.tvLabelVibrate100.text = if (en) "Vibrate at every 100" else "Getaran setiap 100"
+        binding.tvLabelWidget.text = if (en) "Zikir Counter Widget" else "Widget Kaunter Zikir"
+        binding.tvLabelWidgetCountRight.text =
+            if (en) "Count button on the right" else "Butang kira di sebelah kanan"
 
         // Update font size label with current size
         val currentSize = prefs.getFloat("arabic_font_size", 28f)
@@ -84,6 +89,15 @@ class SettingsActivity : AppCompatActivity() {
         switch.isChecked = prefs.getBoolean("vibrate_on_100", true)
         switch.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("vibrate_on_100", isChecked).apply()
+        }
+    }
+
+    private fun setupWidgetCountSide() {
+        val switch = binding.switchWidgetCountRight
+        switch.isChecked = prefs.getBoolean("widget_count_on_right", false)
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("widget_count_on_right", isChecked).apply()
+            ZikrCounterWidget.updateAll(this)
         }
     }
 

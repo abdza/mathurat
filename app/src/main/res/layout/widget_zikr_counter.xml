@@ -7,6 +7,36 @@
     android:background="@drawable/widget_background"
     android:padding="8dp">
 
+    <!-- Reset on the left, shown when the count button is set to the right side -->
+    <LinearLayout
+        android:id="@+id/widgetResetStart"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/widget_reset_bg">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_refresh"
+            android:contentDescription="@string/widget_reset"
+            android:tint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/widgetResetLabelStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/widget_reset"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
     <!-- Tap anywhere here to count -->
     <LinearLayout
         android:id="@+id/widgetTapZone"

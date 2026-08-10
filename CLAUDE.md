@@ -413,7 +413,15 @@ Large tap target that counts, small reset beside it.
 - Shares `mathurat_zikr_counter`'s `count` with `ZikrCounterActivity`. The activity pushes
   `ZikrCounterWidget.updateAll()` after every tap/reset, and re-reads the count in `onResume`
   because the widget may have changed it while the activity was backgrounded.
-- Mirrors the in-app milestone vibration at 33 and 100.
+- Mirrors the in-app tap feedback: the same `ToneGenerator` beep on every tap, and vibration
+  per the `mathurat_settings` vibrate toggles (every tap if `vibrate_on_click`, milestones at
+  33/100). **Widget vibration must be sent with `USAGE_ALARM` vibration attributes** —
+  Android 12+ silently drops background-process vibrations (a widget tap runs in a broadcast
+  receiver) unless they carry an alerting usage. Plain `vibrate()` never reaches the motor.
+- `widget_count_on_right` (`mathurat_settings`, default false) flips the layout for
+  right-handed use: reset moves to the left, the big count target to the right. Toggled from
+  SettingsActivity, which calls `updateAll()` so placed widgets redraw immediately. The layout
+  has a reset block on each side and `render()` shows exactly one.
 - `updatePeriodMillis="0"` — it only ever redraws in response to a tap.
 - **Reset is immediate, with no confirmation.** That is what was asked for; if accidental
   taps become a problem, the cheap fix is a two-tap arm ("Ketuk lagi") rather than a dialog,
